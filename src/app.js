@@ -21,6 +21,6 @@ app.use(helmet());
 app.use(cors());
 app.use(cookie());
 
-// app.use(routes);
+app.use(routes);
 
 module.exports = { PORT, app };
