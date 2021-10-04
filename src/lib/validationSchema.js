@@ -6,12 +6,6 @@ exports.bannerSchema = Joi.object({
         "string.empty": "title cannot be an empty field",
         "string.max": "title should have a maximum length of {#limit}",
         "any.required": "title is a required field"
-    }),
-    image: Joi.string().max(100).required().messages({
-        "string.base": "image should be a type of text",
-        "string.empty": "image cannot be an empty field",
-        "string.max": "image should have a maximum length of {#limit}",
-        "any.required": "image is a required field" 
     })
 });
 

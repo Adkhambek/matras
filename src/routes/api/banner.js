@@ -23,15 +23,15 @@ router.get("/", async (req, res) => {
 
 router.post("/", async (req, res) => {     
     try { 
-        await bannerSchema.validateAsync({
-            title: req.body.title,
-        });
         await bannerImageUpload(req, res);
-        await model.addBanner(req.body.title, req.file.fieldname);
+        await bannerSchema.validateAsync(req.body);
+        await model.addBanner(req.body.title, req.file.filename);
+
         res.status(201).json({
             statusCode: 201,
             message: "The banner was added successfully!",
         }); 
+        
     } catch (error) {
         if(error.name === "ValidationError") {
             res.status(400).json({

@@ -16,5 +16,5 @@ WHERE id = $3;
 `
 
 exports.getBanners = () => fetchAll(GET_BANNERS);
-exports.addBanner = (data) => fetch(ADD_BANNER, data.title, data.image);
+exports.addBanner = (title, image) => fetch(ADD_BANNER, title, image);
 exports.updateBanner = (data, id) => fetch(UPDATE_BANNER, data.title, data.image, id);
