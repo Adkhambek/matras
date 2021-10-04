@@ -14,8 +14,7 @@ app.use(session(
         saveUninitialized: true,
         resave: true
     }
-))
-
+));
 app.use(express.json());
 app.use(helmet());
 app.use(cors());
