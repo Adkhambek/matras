@@ -19,8 +19,14 @@ UPDATE banners
 SET title = $1, image = $2
 WHERE id = $3;
 `
+const DISABLE_BANNER = `
+UPDATE banners
+SET is_active = '1'
+WHERE id = $1
+`
 
 exports.getBanners = () => fetchAll(GET_BANNERS);
 exports.getBanner = (id) => fetch(GET_BANNER, id)
 exports.addBanner = (title, image) => fetch(ADD_BANNER, title, image);
-exports.updateBanner = (title, image, id) => fetch(UPDATE_BANNER, image, title, id);
+exports.updateBanner = (title, image, id) => fetch(UPDATE_BANNER, title, image, id);
+exports.disableBanner = (id) => fetch(DISABLE_BANNER, id);

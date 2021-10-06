@@ -21,6 +21,23 @@ router.get("/", async (req, res) => {
 
 });
 
+router.get("/:id", async (req, res) => {
+    try {
+        const bannerId = req.params.id * 1;
+        const banner = await model.getBanner(bannerId);
+        res.status(200).json({
+            statusCode: 200,
+            data: banner
+        });
+    } catch (error) {
+        res.status(400).json({
+            statusCode: 400,
+            error: bannerMsg.requestErr
+        });
+    }
+
+})
+
 router.post("/", bannerValidation, async (req, res) => {
     try {
         await model.addBanner(req.body.title, req.file.filename);
@@ -31,60 +48,50 @@ router.post("/", bannerValidation, async (req, res) => {
         });
 
     } catch (error) {
-        return res.status(400).json({
+        res.status(400).json({
             statusCode: 400,
             error: bannerMsg.requestErr
         });    
     }
 })
 
-router.patch("/:id", async (req, res) => {
-    const bannerId = req.params.id * 1;
-    return bannerImageUpload(req, res, async err => {
-        if (err) {
-            return res.status(400).json({
-                statusCode: 400,
-                detail: err.message
-            })
-        } else {
-            if (req.fileFormatError) {
-                return res.status(400).json({
-                    statusCode: 400,
-                    detail: req.fileFormatError
-                })
-            } else if (!req.file) {
-                return res.status(400).json({
-                    statusCode: 400,
-                    detail: bannerMsg.imageEmptyErr
-                })
-            } else {
-                await bannerSchema.validateAsync(req.body);
-                const banner = await model.getBanner(bannerId);
-                await deleteFile(`${imagePath}/banner/${banner.image}`);
-                await model.updateBanner(req.body.title, req.file.filename, bannerId);
+router.patch("/:id", bannerValidation, async (req, res) => {
+    try {
+        const bannerId = req.params.id * 1;
+        const banner = await model.getBanner(bannerId);
+        console.log(banner.image);
+        await deleteFile(imagePath("banner", banner.image));
+        await model.updateBanner(req.body.title, req.file.filename, bannerId);
+        res.status(201).json({
+            statusCode: 201,
+            message: bannerMsg.successEdit
+        });   
+    } catch (error) {
+        res.status(400).json({
+            statusCode: 400,
+            error: bannerMsg.requestErr,
+            detail: error
+        });
+    }
+    
+});
 
-                return res.status(201).json({
-                    statusCode: 201,
-                    message: bannerMsg.successEdit
-                });
-            }
+router.patch("/disable/:id", async (req, res) => {
+    try {
+        const bannerId = req.params.id * 1;
+        await model.disableBanner(bannerId);
 
-        }
-    })
-    //     if(error.name === "ValidationError") {
-    //       return  res.status(400).json({
-    //             statusCode: 400,
-    //             detail: error.details[0].message
-    //         })
-    //     } else {
-    //        return res.status(400).json({
-    //             statusCode: 400,
-    //             error: bannerMsg.requestErr
-    //         }); 
-    //     }
+        res.status(201).json({
+            statusCode: 201,
+            message: bannerMsg.successDisable,
+        });
 
-    // }
-
+    } catch (error) {
+        res.status(400).json({
+            statusCode: 400,
+            error: bannerMsg.requestErr
+        });    
+    }    
 })
 
 

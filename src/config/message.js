@@ -5,6 +5,7 @@ module.exports = {
     bannerMsg: {
         successAdd: "The banner was added successfully!",
         successEdit: "The banner was updated successfully!",
+        successDisable: "The banner was disabled successfully!",
         fileSizeErr: `File size cannot be larger than ${imageMaxSize}!`,
         imageEmptyErr: "Image is required!",
         requestErr: "Your request could not be processed. Please try it again"

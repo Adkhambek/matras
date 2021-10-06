@@ -1,7 +1,9 @@
 const router = require("express").Router();
 
-const BannerRoutes = require("./banner");
+const bannerRoutes = require("./banner");
+const statisticsRoutes = require("./statistics");
 
-router.use("/banner", BannerRoutes);
+router.use("/banner", bannerRoutes);
+router.use("/statistics", statisticsRoutes);
 
 module.exports = router;
