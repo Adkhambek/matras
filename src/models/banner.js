@@ -1,12 +1,22 @@
 const { fetch, fetchAll } = require("../lib/database");
 
 const GET_BANNERS = `
-SELECT * FROM banners
+SELECT
+    id,
+    title,
+    image,
+    TO_CHAR(date, 'yyyy-MM-dd HH24:MI:SS') as date
+FROM banners
 WHERE is_active = '0';
 `;
 
 const GET_BANNER = `
-SELECT * FROM banners
+SELECT
+    id,
+    title,
+    image,
+    TO_CHAR(date, 'yyyy-MM-dd HH24:MI:SS') as date
+FROM banners
 WHERE id = $1;
 `
 

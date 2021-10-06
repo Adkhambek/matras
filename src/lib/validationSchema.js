@@ -1,11 +1,31 @@
 const Joi = require("joi");
+const { joiValidation } = require("../config/message")
 
 exports.bannerSchema = Joi.object({
     title: Joi.string().max(100).required().messages({
-        "string.base": "title should be a type of text",
-        "string.empty": "title cannot be an empty field",
-        "string.max": "title should have a maximum length of {#limit}",
-        "any.required": "title is a required field"
+        "string.base": joiValidation.stringBase("title"),
+        "string.empty": joiValidation.stringEmpty("title"),
+        "string.max": joiValidation.stringMax("title"),
+        "any.required": joiValidation.anyRequired("title")
+    })
+});
+
+exports.statisticsSchema = Joi.object({
+    experience: Joi.number().required().messages({
+        "number.base": joiValidation.numberBase("experience"),
+        "any.required": joiValidation.anyRequired("experience")
+    }),
+    client: Joi.number().required().messages({
+        "number.base": joiValidation.numberBase("client"),
+        "any.required": joiValidation.anyRequired("client")
+    }), 
+    guarantee: Joi.number().required().messages({
+        "number.base": joiValidation.numberBase("guarantee"),
+        "any.required": joiValidation.anyRequired("guarantee")
+    }), 
+    delivery: Joi.number().required().messages({
+        "number.base": joiValidation.numberBase("delivery"),
+        "any.required": joiValidation.anyRequired("delivery")
     })
 });
 

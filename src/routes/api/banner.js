@@ -59,11 +59,10 @@ router.patch("/:id", bannerValidation, async (req, res) => {
     try {
         const bannerId = req.params.id * 1;
         const banner = await model.getBanner(bannerId);
-        console.log(banner.image);
         await deleteFile(imagePath("banner", banner.image));
         await model.updateBanner(req.body.title, req.file.filename, bannerId);
-        res.status(201).json({
-            statusCode: 201,
+        res.status(200).json({
+            statusCode: 200,
             message: bannerMsg.successEdit
         });   
     } catch (error) {
@@ -81,8 +80,8 @@ router.patch("/disable/:id", async (req, res) => {
         const bannerId = req.params.id * 1;
         await model.disableBanner(bannerId);
 
-        res.status(201).json({
-            statusCode: 201,
+        res.status(200).json({
+            statusCode: 200,
             message: bannerMsg.successDisable,
         });
 
