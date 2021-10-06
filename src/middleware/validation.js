@@ -1,6 +1,6 @@
 const { upload } = require("../lib/malter");
 const { bannerMsg } = require("../config/message");
-const { statisticsSchema } = require("../lib/validationSchema");
+const { modelSchema } = require("../lib/validationSchema");
 
 exports.bannerValidation = (req, res, next) => {
     return upload("banner").single("image")(req, res, err => {
@@ -45,6 +45,19 @@ exports.bannerValidation = (req, res, next) => {
 
 exports.statisticsValidation = (req, res, next) => {
     const {error, value} = statisticsSchema.validate(req.body);
+    if(!error) {
+        return next();
+    } else {
+        return res.status(400).json({
+            statusCode: 400,
+            detail: error.details[0].message
+        });
+    }                
+                
+}
+
+exports.modelValidation = (req, res, next) => {
+    const {error, value} = modelSchema.validate(req.body);
     if(!error) {
         return next();
     } else {

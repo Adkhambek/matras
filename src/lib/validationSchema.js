@@ -29,4 +29,13 @@ exports.statisticsSchema = Joi.object({
     })
 });
 
+exports.modelSchema = Joi.object({
+    name: Joi.string().max(20).required().messages({
+        "string.base": joiValidation.stringBase("name"),
+        "string.empty": joiValidation.stringEmpty("name"),
+        "string.max": joiValidation.stringMax("name"),
+        "any.required": joiValidation.anyRequired("name")
+    })
+});
+
 // .options({ abortEarly: false })

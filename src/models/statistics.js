@@ -13,7 +13,7 @@ SELECT
 FROM statistics;
 `;
 
-const GET_STAT_FOR_UPDATE = `
+const GET_STAT_FOR_UPDATE = ` 
 SELECT *
 FROM statistics;
 `;

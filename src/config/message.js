@@ -14,6 +14,12 @@ module.exports = {
         successEdit: "The statistics was updated successfully!",
         requestErr: "Your request could not be processed. Please try it again"
     },
+    modelMsg: {
+        successAdd: "The model was added successfully!",
+        successEdit: "The model was updated successfully!",
+        successDisable: "The model was disabled successfully!",
+        requestErr: "Your request could not be processed. Please try it again"       
+    },
     joiValidation: {
             stringBase: (nameField) => `${nameField} should be a type of text`,
             stringEmpty: (nameField) => `${nameField} cannot be an empty field`,
