@@ -37,13 +37,24 @@ router.get("/all", async (req, res) => {
 
 router.post("/", modelValidation, async (req, res) => {
     try {
-        await model.addModel(req.body.name);
+        if(req.body.status) {
+            await model.addModel(req.body.name);
 
-        res.status(201).json({
-            statusCode: 201,
-            message: modelMsg.successAdd,
-        });
+            res.status(201).json({
+                statusCode: 201,
+                message: modelMsg.successAdd,
+            });
+    
+        } else {
+            const {id} = await model.addModel(req.body.name);
+            await model.disableModel(id);
 
+            res.status(201).json({
+                statusCode: 201,
+                message: modelMsg.successAdd,
+            }); 
+        }
+        
     } catch (error) {
         res.status(400).json({
             statusCode: 400,
@@ -94,6 +105,24 @@ router.patch("/disable/:id", async (req, res) => {
         res.status(200).json({
             statusCode: 200,
             message: modelMsg.successDisable,
+        });
+
+    } catch (error) {
+        res.status(400).json({
+            statusCode: 400,
+            error: modelMsg.requestErr
+        });    
+    }
+});
+
+router.patch("/delete/:id", async (req, res) => {
+    try {
+        const modelId = req.params.id * 1;
+        await model.deleteModel(modelId);
+
+        res.status(200).json({
+            statusCode: 200,
+            message: modelMsg.successDelete,
         });
 
     } catch (error) {

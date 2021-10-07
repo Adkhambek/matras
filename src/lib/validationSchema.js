@@ -35,7 +35,9 @@ exports.modelSchema = Joi.object({
         "string.empty": joiValidation.stringEmpty("name"),
         "string.max": joiValidation.stringMax("name"),
         "any.required": joiValidation.anyRequired("name")
-    })
+    }),
+    status: Joi.boolean()
+
 });
 
 // .options({ abortEarly: false })
