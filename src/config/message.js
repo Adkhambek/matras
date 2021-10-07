@@ -6,8 +6,10 @@ module.exports = {
         successAdd: "The banner was added successfully!",
         successEdit: "The banner was updated successfully!",
         successDisable: "The banner was disabled successfully!",
+        successDelete: "The banner was deleted successfully!",
         fileSizeErr: `File size cannot be larger than ${imageMaxSize}!`,
         imageEmptyErr: "Image is required!",
+        limitErr: "You can only add up to 4 data!",
         requestErr: "Your request could not be processed. Please try it again"
     },
     statisticsMsg: {

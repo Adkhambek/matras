@@ -1,14 +1,26 @@
 CREATE DATABASE matras;
 CREATE EXTENSION pgcrypto;
 CREATE TYPE status_num AS ENUM ('0', '1', '2', '3');
+-- 0 -> eski;
+-- 1 -> yangi;
+-- 2 -> aksiya;
+-- 3 -> yangi va aksiya
 CREATE TYPE active_num AS ENUM ('0', '1');
+-- 0 -> active;
+-- 1 -> disable;
 CREATE TYPE check_num AS ENUM ('0', '2');
+-- 0 -> unchecked;
+-- 1 -> checked;
+CREATE TYPE delete_num AS ENUM ('0', '1');
+-- 0 -> not deleted
+-- 1 -> deleted
 
 CREATE TABLE banners (
     id serial primary key,
     title varchar(100),
     image varchar(100),
     is_active active_num default '0',
+    is_deleted delete_num default '0',
     date timestamptz default current_timestamp
 );
 
@@ -23,6 +35,7 @@ CREATE TABLE models (
     id serial primary key,
     name varchar(20),
     is_active active_num default '0',
+    is_deleted delete_num default '0',
     date timestamptz default current_timestamp
 );
 
@@ -37,8 +50,9 @@ CREATE TABLE products (
     size varchar(20),
     capacity int,
     discount_prize int default 0,
-    status status_num default '0',
+    status status_num default '1',
     is_active active_num default '0',
+    is_deleted delete_num default '0',
     model_id int references models(id),
     date timestamptz default current_timestamp
 );
@@ -59,7 +73,8 @@ CREATE TABLE address (
     target text,
     location text,
     images text [],
-    is_active active_num default '0'
+    is_active active_num default '0',
+    is_deleted delete_num default '0'
 );
 
 CREATE TABLE interest (
@@ -73,8 +88,10 @@ CREATE TABLE technologies (
     id serial primary key,
     name varchar(30),
     video varchar(200),
+    thumbnail varchar(200),
+    detail text,
     is_active active_num default '0',
-    detail text
+    is_deleted delete_num default '0'
 );
 
 CREATE TABLE admin (

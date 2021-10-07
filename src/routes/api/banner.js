@@ -21,6 +21,23 @@ router.get("/", async (req, res) => {
 
 });
 
+router.get("/all", async (req, res) => {
+    try {
+        const banners = await model.getAllBanners();
+        res.status(200).json({
+            statusCode: 200,
+            results: banners.length,
+            data: banners
+        });
+    } catch (error) {
+        res.status(400).json({
+            statusCode: 400,
+            error: bannerMsg.requestErr
+        });
+    }
+
+});
+
 router.get("/:id", async (req, res) => {
     try {
         const bannerId = req.params.id * 1;
@@ -36,24 +53,23 @@ router.get("/:id", async (req, res) => {
         });
     }
 
-})
+});
 
 router.post("/", bannerValidation, async (req, res) => {
     try {
         await model.addBanner(req.body.title, req.file.filename);
-
         res.status(201).json({
             statusCode: 201,
             message: bannerMsg.successAdd,
         });
-
+     
     } catch (error) {
         res.status(400).json({
             statusCode: 400,
             error: bannerMsg.requestErr
         });    
     }
-})
+});
 
 router.patch("/:id", bannerValidation, async (req, res) => {
     try {
@@ -91,7 +107,25 @@ router.patch("/disable/:id", async (req, res) => {
             error: bannerMsg.requestErr
         });    
     }    
-})
+});
+
+router.patch("/delete/:id", async (req, res) => {
+    try {
+        const bannerId = req.params.id * 1;
+        await model.deleteBanner(bannerId);
+
+        res.status(200).json({
+            statusCode: 200,
+            message: bannerMsg.successDelete,
+        });
+
+    } catch (error) {
+        res.status(400).json({
+            statusCode: 400,
+            error: bannerMsg.requestErr
+        });    
+    }     
+});
 
 
 module.exports = router;
