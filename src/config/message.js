@@ -23,6 +23,13 @@ module.exports = {
         successDelete: "The model was deleted successfully!",
         requestErr: "Your request could not be processed. Please try it again"       
     },
+    productMsg: {
+        successAdd: "The product was added successfully!",
+        successEdit: "The product was updated successfully!",
+        successDisable: "The product was disabled successfully!",
+        successDelete: "The product was deleted successfully!",
+        requestErr: "Your request could not be processed. Please try it again" 
+    },
     joiValidation: {
             stringBase: (nameField) => `${nameField} should be a type of text`,
             stringEmpty: (nameField) => `${nameField} cannot be an empty field`,

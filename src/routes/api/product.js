@@ -6,7 +6,7 @@ const {deleteFile, imagePath} = require("../../lib/helper");
 
 router.get("/", async (req, res) => {
     try {
-        const products = await model.getproducts();
+        const products = await model.getProducts();
         res.status(200).json({
             statusCode: 200,
             results: products.length,
@@ -15,8 +15,11 @@ router.get("/", async (req, res) => {
     } catch (error) {
         res.status(400).json({
             statusCode: 400,
-            error: productMsg.requestErr
+            error: productMsg.requestErr,
+            errorMsg: error
         });
     }
 
 });
+
+module.exports = router;

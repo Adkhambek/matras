@@ -13,6 +13,8 @@ SELECT
     size,
     capacity,
     status
-FROM banners
+FROM products
 WHERE is_active = '0';
 `;
+
+exports.getProducts = () => fetchAll(GET_ACTIVE_PRODUCTS)
