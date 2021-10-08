@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const model = require("../../models/statistics");
-const { statisticsValidation } = require("../../middleware/validation");
+const schema = require("../../lib/validationSchema");
+const { validation } = require("../../middleware/validation");
 const { statisticsMsg } = require("../../config/message");
 
 router.get("/", async (req, res) => {
@@ -34,7 +35,7 @@ router.get("/update", async(req, res) => {
     }   
 })
 
-router.patch("/update", statisticsValidation, async (req, res) => {
+router.patch("/update", validation(schema.statisticsSchema), async (req, res) => {
     try {
         await model.updateStatistics(req.body);
         res.status(200).json({

@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const model = require("../../models/model");
-const { modelValidation } = require("../../middleware/validation");
+const schema = require("../../lib/validationSchema");
+const { validation } = require("../../middleware/validation");
 const { modelMsg } = require("../../config/message");
 
 router.get("/", async (req, res) => {
@@ -35,7 +36,7 @@ router.get("/all", async (req, res) => {
     }
 });
 
-router.post("/", modelValidation, async (req, res) => {
+router.post("/", validation(schema.modelSchema), async (req, res) => {
     try {
         if(req.body.status) {
             await model.addModel(req.body.name);
@@ -79,7 +80,7 @@ router.get("/:id", async (req, res) => {
     }
 });
 
-router.patch("/:id", modelValidation, async (req, res) => {
+router.patch("/:id", validation(schema.modelSchema), async (req, res) => {
     try {
         const modelId = req.params.id * 1;
         await model.updateModel(req.body.name, modelId);

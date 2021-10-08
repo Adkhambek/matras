@@ -1,6 +1,8 @@
 const router = require("express").Router();
 const model = require("../../models/banner");
-const { bannerValidation } = require("../../middleware/validation");
+const { bannerUpload } = require("../../middleware/upload");
+const schema = require("../../lib/validationSchema");
+const { validation } = require("../../middleware/validation");
 const { bannerMsg } = require("../../config/message");
 const {deleteFile, imagePath} = require("../../lib/helper");
 
@@ -55,7 +57,7 @@ router.get("/:id", async (req, res) => {
 
 });
 
-router.post("/", bannerValidation, async (req, res) => {
+router.post("/", bannerUpload, validation(schema.bannerSchema), async (req, res) => {
     try {
         await model.addBanner(req.body.title, req.file.filename);
         res.status(201).json({
@@ -71,7 +73,7 @@ router.post("/", bannerValidation, async (req, res) => {
     }
 });
 
-router.patch("/:id", bannerValidation, async (req, res) => {
+router.patch("/:id", bannerUpload, validation(schema.bannerSchema), async (req, res) => {
     try {
         const bannerId = req.params.id * 1;
         const banner = await model.getBanner(bannerId);
