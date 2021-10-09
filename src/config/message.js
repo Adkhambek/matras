@@ -28,6 +28,7 @@ module.exports = {
         successAdd: "The product was added successfully!",
         successEdit: "The product was updated successfully!",
         successDisable: "The product was disabled successfully!",
+        successActive: "The product was active successfully!",
         successDelete: "The product was deleted successfully!",
         requestErr: "Your request could not be processed. Please try it again" 
     },

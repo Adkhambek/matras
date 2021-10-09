@@ -44,11 +44,30 @@ router.get("/all", async (req, res) => {
 
 });
 
+router.get("/discount", async (req, res) => {
+    try {
+        const products = await model.getDiscountProducts();
+        res.status(200).json({
+            statusCode: 200,
+            results: products.length, 
+            data: products
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(400).json({
+            statusCode: 400,
+            error: productMsg.requestErr,
+            errorMsg: error
+        });
+    }
+
+});
+
 router.get("/:id", async (req, res) => {
     try {
         const productId = req.params.id * 1
         const product = await model.getProduct(productId);
-        res.status(200).json({
+        return res.status(200).json({
             statusCode: 200,
             data: product
         });
@@ -62,7 +81,7 @@ router.get("/:id", async (req, res) => {
 
 });
 
-router.get("model/:id", async (req, res) => {
+router.get("/model/:id", async (req, res) => {
     try {
         const productId = req.params.id * 1
         const products = await model.getProductsByCategory(productId);
@@ -117,7 +136,6 @@ router.post("/", productUpload, validation(schema.productSchema), async (req, re
                 await model.discountProduct(req.body.discountPrice, id);
             } 
         }
-        
         res.status(201).json({
             statusCode: 201,
             message: productMsg.successAdd
@@ -126,20 +144,87 @@ router.post("/", productUpload, validation(schema.productSchema), async (req, re
     } catch (error) {
         res.status(400).json({
             statusCode: 400,
-            error: bannerMsg.requestErr
+            error: productMsg.requestErr
         });    
     }
 });
 
-router.patch("/disable/:id", async (req, res) => {
+router.patch("/:id", productUpload, validation(schema.productSchema), async (req, res) => {
     try {
         const productId = req.params.id * 1;
-        await model.disableProduct(productId);
+        console.log(productId);
+        let productImages = await model.getProductImages(productId);
+        productImages = JSON.parse(productImages.images);
+        console.log(productImages);
+        for (const image of productImages) {
+            await deleteFile(imagePath("product", image));   
+        }
+        let imageNames = req.files.map(e => e = e.filename);
+        imageNames = JSON.stringify(imageNames);
+        await model.updateProduct(req.body, imageNames);
 
-        res.status(200).json({
-            statusCode: 200,
-            message: productMsg.successDisable,
+        if(req.body.discount === "false" && req.body.navinla === "true") {
+            if(req.body.active === "false") {
+                await model.disableProduct(productId); 
+                await model.statusProduct("1", productId);
+            } else {
+                await model.statusProduct("1", productId);
+            } 
+        } else if(req.body.discount === "true" && req.body.navinla === "false") {
+            if(req.body.active === "false") {
+                await model.disableProduct(productId); 
+                await model.statusProduct("2", productId);
+                await model.discountProduct(req.body.discountPrice, productId);
+            } else {
+                await model.statusProduct("2", productId);
+                await model.discountProduct(req.body.discountPrice, productId);
+            } 
+        } else if(req.body.discount === "false" && req.body.navinla === "false") {
+            if(req.body.active === "false") {
+                await model.disableProduct(productId); 
+                await model.statusProduct("0", productId);
+            } else {
+                await model.statusProduct("0", productId);
+            } 
+        } else if(req.body.discount === "true" && req.body.navinla === "true") {
+            if(req.body.active === "false") {
+                await model.disableProduct(productId); 
+                await model.discountProduct(req.body.discountPrice, productId);
+            } else {
+                await model.discountProduct(req.body.discountPrice, productId);
+            } 
+        }
+        res.status(201).json({
+            statusCode: 201,
+            message: productMsg.successEdit
         });
+     
+    } catch (error) {
+        console.log(error);
+        res.status(400).json({
+            statusCode: 400,
+            error: productMsg.requestErr
+        });    
+    }
+});
+
+router.patch("/active/:id", async (req, res) => {
+    try {
+        const productId = req.params.id * 1;
+        if(req.body.active) {
+            await model.activeProduct(productId);
+            res.status(200).json({
+                statusCode: 200,
+                message: productMsg.successActive,
+            });
+        } else {
+            await model.disableProduct(productId);
+            res.status(200).json({
+                statusCode: 200,
+                message: productMsg.successDisable,
+            });
+        }
+        
     } catch (error) {
         res.status(400).json({
             statusCode: 400,
