@@ -136,8 +136,7 @@ SET
     capacity = $7,
     detail = $8,
     images = $9
-WHERE id = $10
-RETURNING id;
+WHERE id = $10;
 `;
 
 const GET_IMAGE = `

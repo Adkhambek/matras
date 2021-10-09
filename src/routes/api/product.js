@@ -53,7 +53,6 @@ router.get("/discount", async (req, res) => {
             data: products
         });
     } catch (error) {
-        console.log(error);
         res.status(400).json({
             statusCode: 400,
             error: productMsg.requestErr,
@@ -152,16 +151,14 @@ router.post("/", productUpload, validation(schema.productSchema), async (req, re
 router.patch("/:id", productUpload, validation(schema.productSchema), async (req, res) => {
     try {
         const productId = req.params.id * 1;
-        console.log(productId);
         let productImages = await model.getProductImages(productId);
         productImages = JSON.parse(productImages.images);
-        console.log(productImages);
         for (const image of productImages) {
             await deleteFile(imagePath("product", image));   
         }
         let imageNames = req.files.map(e => e = e.filename);
         imageNames = JSON.stringify(imageNames);
-        await model.updateProduct(req.body, imageNames);
+        await model.updateProduct(req.body, imageNames, productId);
 
         if(req.body.discount === "false" && req.body.navinla === "true") {
             if(req.body.active === "false") {
@@ -200,7 +197,6 @@ router.patch("/:id", productUpload, validation(schema.productSchema), async (req
         });
      
     } catch (error) {
-        console.log(error);
         res.status(400).json({
             statusCode: 400,
             error: productMsg.requestErr
