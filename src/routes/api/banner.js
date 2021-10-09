@@ -1,4 +1,4 @@
-const router = require("express").Router();
+const router = require("express").Router(); 
 const model = require("../../models/banner");
 const { bannerUpload } = require("../../middleware/upload");
 const schema = require("../../lib/validationSchema");

@@ -84,6 +84,28 @@ exports.productSchema = Joi.object({
     active: Joi.boolean().required(),
     discount: Joi.boolean().required(),
     navinla: Joi.boolean().required(),
-})
+});
+
+exports.technologySchema = Joi.object({
+    name: Joi.string().max(30).required().messages({
+        "string.base": joiValidation.stringBase("name"),
+        "string.empty": joiValidation.stringEmpty("name"),
+        "string.max": joiValidation.stringMax("name"),
+        "any.required": joiValidation.anyRequired("name")
+    }), 
+    video: Joi.string().max(200).required().messages({
+        "string.base": joiValidation.stringBase("youtube link"),
+        "string.empty": joiValidation.stringEmpty("youtube link"),
+        "string.max": joiValidation.stringMax("youtube link"),
+        "any.required": joiValidation.anyRequired("youtube link")
+    }), 
+    detail: Joi.string().max(600).required().messages({
+        "string.base": joiValidation.stringBase("youtube link"),
+        "string.empty": joiValidation.stringEmpty("youtube link"),
+        "string.max": joiValidation.stringMax("youtube link"),
+        "any.required": joiValidation.anyRequired("youtube link")
+    }),
+    active: Joi.boolean().required()
+});
 
 // .options({ abortEarly: false })

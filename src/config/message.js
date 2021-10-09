@@ -32,6 +32,17 @@ module.exports = {
         successDelete: "The product was deleted successfully!",
         requestErr: "Your request could not be processed. Please try it again" 
     },
+    technologyMsg: {
+        successAdd: "The technology was added successfully!",
+        successEdit: "The technology was updated successfully!",
+        successDisable: "The technology was disabled successfully!",
+        successActive: "The technology was active successfully!",
+        successDelete: "The technology was deleted successfully!",
+        fileSizeErr: `File size cannot be larger than ${imageMaxSize}!`,
+        imageEmptyErr: "Image is required!",
+        limitErr: "You can only add up to 3 data!",
+        requestErr: "Your request could not be processed. Please try it again"
+    },
     joiValidation: {
             stringBase: (nameField) => `${nameField} should be a type of text`,
             stringEmpty: (nameField) => `${nameField} cannot be an empty field`,
