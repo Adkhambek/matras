@@ -20,6 +20,7 @@ module.exports = {
         successAdd: "The model was added successfully!",
         successEdit: "The model was updated successfully!",
         successDisable: "The model was disabled successfully!",
+        successActive: "The model was active successfully!",
         successDelete: "The model was deleted successfully!",
         requestErr: "Your request could not be processed. Please try it again"       
     },

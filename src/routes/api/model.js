@@ -38,23 +38,16 @@ router.get("/all", async (req, res) => {
 
 router.post("/", validation(schema.modelSchema), async (req, res) => {
     try {
-        if(req.body.status) {
+        if(req.body.active) {
             await model.addModel(req.body.name);
-
-            res.status(201).json({
-                statusCode: 201,
-                message: modelMsg.successAdd,
-            });
-    
         } else {
             const {id} = await model.addModel(req.body.name);
             await model.disableModel(id);
-
-            res.status(201).json({
-                statusCode: 201,
-                message: modelMsg.successAdd,
-            }); 
         }
+        res.status(201).json({
+            statusCode: 201,
+            message: modelMsg.successAdd,
+        }); 
         
     } catch (error) {
         res.status(400).json({
@@ -98,15 +91,23 @@ router.patch("/:id", validation(schema.modelSchema), async (req, res) => {
     
 });
 
-router.patch("/disable/:id", async (req, res) => {
+router.patch("/active/:id", async (req, res) => {
     try {
         const modelId = req.params.id * 1;
-        await model.disableModel(modelId);
-
-        res.status(200).json({
-            statusCode: 200,
-            message: modelMsg.successDisable,
-        });
+        if(req.body.active) {
+            await model.activeModel(modelId);
+            res.status(200).json({
+                statusCode: 200,
+                message: modelMsg.successActive,
+            });
+        } else {
+            await model.disableModel(modelId);
+            res.status(200).json({
+                statusCode: 200,
+                message: modelMsg.successDisable,
+            });
+        }
+        
 
     } catch (error) {
         res.status(400).json({

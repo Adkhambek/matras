@@ -34,10 +34,16 @@ UPDATE models
 SET name = $1
 WHERE id = $2;
 `;
-
+ 
 const DISABLE_MODEL = `
 UPDATE models 
 SET is_active = '1'
+WHERE id = $1;
+`;
+
+ACTIVE_MODEL = `
+UPDATE models 
+SET is_active = '0'
 WHERE id = $1;
 `;
 
@@ -53,4 +59,5 @@ exports.getModel = (id) => fetch(GET_MODEL, id);
 exports.addModel = (modelName) => fetch(ADD_MODEL, modelName);
 exports.updateModel = (modelName, id) => fetch(UPDATE_MODEL, modelName, id);
 exports.disableModel = (id) => fetch(DISABLE_MODEL, id);
+exports.activeModel = (id) => fetch(ACTIVE_MODEL, id);
 exports.deleteModel = (id) => fetch(DELETE_MODEL, id);

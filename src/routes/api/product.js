@@ -9,7 +9,8 @@ const {deleteFile, imagePath} = require("../../lib/helper");
 router.get("/", async (req, res) => {
     try {
         let products = await model.getProducts();
-        products = products.map(e => JSON.parse(e.images))
+        // parse json
+        // products = products.map(e => JSON.parse(e.images))
         res.status(200).json({
             statusCode: 200,
             results: products.length, 
@@ -61,11 +62,62 @@ router.get("/:id", async (req, res) => {
 
 });
 
+router.get("model/:id", async (req, res) => {
+    try {
+        const productId = req.params.id * 1
+        const products = await model.getProductsByCategory(productId);
+        res.status(200).json({
+            statusCode: 200,
+            data: products
+        });
+    } catch (error) {
+        res.status(400).json({
+            statusCode: 400,
+            error: productMsg.requestErr,
+            errorMsg: error
+        });
+    }
+
+});
+
 router.post("/", productUpload, validation(schema.productSchema), async (req, res) => {
     try {
         let imageNames = req.files.map(e => e = e.filename);
         imageNames = JSON.stringify(imageNames);
-        await model.addProduct(req.body, imageNames);
+        const {id} = await model.addProduct(req.body, imageNames);
+
+        if(req.body.discount === "false" && req.body.navinla === "true") {
+            if(req.body.active === "false") {
+                await model.disableProduct(id); 
+                await model.statusProduct("1", id);
+            } else {
+                await model.statusProduct("1", id);
+            } 
+        } else if(req.body.discount === "true" && req.body.navinla === "false") {
+            if(req.body.active === "false") {
+                await model.disableProduct(id); 
+                await model.statusProduct("2", id);
+                await model.discountProduct(req.body.discountPrice, id);
+            } else {
+                await model.statusProduct("2", id);
+                await model.discountProduct(req.body.discountPrice, id);
+            } 
+        } else if(req.body.discount === "false" && req.body.navinla === "false") {
+            if(req.body.active === "false") {
+                await model.disableProduct(id); 
+                await model.statusProduct("0", id);
+            } else {
+                await model.statusProduct("0", id);
+            } 
+        } else if(req.body.discount === "true" && req.body.navinla === "true") {
+            if(req.body.active === "false") {
+                await model.disableProduct(id); 
+                await model.discountProduct(req.body.discountPrice, id);
+            } else {
+                await model.discountProduct(req.body.discountPrice, id);
+            } 
+        }
+        
         res.status(201).json({
             statusCode: 201,
             message: productMsg.successAdd
@@ -75,6 +127,41 @@ router.post("/", productUpload, validation(schema.productSchema), async (req, re
         res.status(400).json({
             statusCode: 400,
             error: bannerMsg.requestErr
+        });    
+    }
+});
+
+router.patch("/disable/:id", async (req, res) => {
+    try {
+        const productId = req.params.id * 1;
+        await model.disableProduct(productId);
+
+        res.status(200).json({
+            statusCode: 200,
+            message: productMsg.successDisable,
+        });
+    } catch (error) {
+        res.status(400).json({
+            statusCode: 400,
+            error: productMsg.requestErr
+        });    
+    }
+});
+
+router.patch("/delete/:id", async (req, res) => {
+    try {
+        const productId = req.params.id * 1;
+        await model.deleteProduct(productId);
+
+        res.status(200).json({
+            statusCode: 200,
+            message: productMsg.successDelete,
+        });
+
+    } catch (error) {
+        res.status(400).json({
+            statusCode: 400,
+            error: productMsg.requestErr
         });    
     }
 });

@@ -36,7 +36,7 @@ exports.modelSchema = Joi.object({
         "string.max": joiValidation.stringMax("name"),
         "any.required": joiValidation.anyRequired("name")
     }),
-    status: Joi.boolean()
+    active: Joi.boolean().required()
 
 });
 
@@ -73,15 +73,17 @@ exports.productSchema = Joi.object({
         "number.base": joiValidation.numberBase("capacity"),
         "any.required": joiValidation.anyRequired("capacity")
     }),
-    // discountPrice: Joi.number().required().messages({
-    //     "number.base": joiValidation.numberBase("currentPrice"),
-    //     "any.required": joiValidation.anyRequired("currentPrice")
-    // }),
+    discountPrice: Joi.number().messages({
+        "number.base": joiValidation.numberBase("currentPrice")
+    }),
     detail: Joi.string().required().messages({
         "string.base": joiValidation.stringBase("detail"),
         "string.empty": joiValidation.stringEmpty("detail"),
         "any.required": joiValidation.anyRequired("detail")
-    })
+    }),
+    active: Joi.boolean().required(),
+    discount: Joi.boolean().required(),
+    navinla: Joi.boolean().required(),
 })
 
 // .options({ abortEarly: false })

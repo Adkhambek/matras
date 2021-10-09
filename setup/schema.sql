@@ -50,7 +50,7 @@ CREATE TABLE products (
     size varchar(20),
     capacity int,
     discount_price int default 0,
-    status status_num default '1',
+    status status_num default '3',
     is_active active_num default '0',
     is_deleted delete_num default '0',
     model_id int references models(id),
