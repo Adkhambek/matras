@@ -23,6 +23,22 @@ router.get("/", async (req, res) => {
 
 });
 
+router.get("/all", async (req, res) => {
+    try {
+        const technologies = await model.getAllTechnologies();
+        res.status(200).json({
+            statusCode: 200,
+            results: technologies.length,
+            data: technologies
+        });
+    } catch (error) {
+        res.status(400).json({
+            statusCode: 400,
+            error: technologyMsg.requestErr
+        });
+    }    
+})
+
 router.post("/", technologyUpload, validation(schema.technologySchema), async (req, res) => {
     try {
         if(req.body.active === "true") {
@@ -37,6 +53,49 @@ router.post("/", technologyUpload, validation(schema.technologySchema), async (r
             message: technologyMsg.successAdd,
         });
      
+    } catch (error) {
+        res.status(400).json({
+            statusCode: 400,
+            error: technologyMsg.requestErr
+        });    
+    }
+});
+
+router.patch("/:id", technologyUpload, validation(schema.technologySchema), async (req, res) => {
+    try {
+        const techId = req.params.id * 1;
+        const techImage = await model.getTechnologyImage(techId);
+        await deleteFile(imagePath("technology", techImage.thumbnail));  
+
+        if(req.body.active === "true") {
+            await model.updateTechnology(req.body, req.file.filename, techId);
+        } else {
+            await model.updateTechnology(req.body, req.file.filename, techId);
+            await model.disableTechnology(techId);
+        }
+        res.status(201).json({
+            statusCode: 201,
+            message: technologyMsg.successEdit,
+        });
+        
+    } catch (error) {
+        res.status(400).json({
+            statusCode: 400,
+            error: technologyMsg.requestErr
+        });    
+    }
+});
+
+router.patch("/delete/:id", async (req, res) => {
+    try {
+        const technologyId = req.params.id * 1;
+        await model.deleteTechnology(technologyId);
+
+        res.status(200).json({
+            statusCode: 200,
+            message: technologyMsg.successDelete,
+        });
+
     } catch (error) {
         res.status(400).json({
             statusCode: 400,
