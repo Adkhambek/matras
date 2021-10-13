@@ -69,6 +69,7 @@ CREATE TABLE orders (
 );
 
 CREATE TABLE address (
+    id serial primary key,
     address varchar(50),
     target text,
     location text,

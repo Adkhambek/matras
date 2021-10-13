@@ -8,7 +8,7 @@ const {deleteFile, imagePath} = require("../../lib/helper");
 
 router.get("/", async (req, res) => {
     try {
-        const address = await model.getaddress(1);
+        const address = await model.getAddress(1);
         res.status(200).json({
             statusCode: 200,
             data: address
@@ -79,13 +79,13 @@ router.patch("/:id", addressUpload, validation(schema.addressSchema), async (req
             
         res.status(201).json({
             statusCode: 201,
-            message: productMsg.successEdit
+            message: addressMsg.successEdit
         });
      
     } catch (error) {
         res.status(400).json({
             statusCode: 400,
-            error: productMsg.requestErr
+            error: addressMsg.requestErr
         });    
     }
 });

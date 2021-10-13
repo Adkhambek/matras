@@ -1,7 +1,13 @@
 const { fetch, fetchAll } = require("../lib/database");
 
 const GET_ADDRESS = ` 
-SELECT *
+SELECT
+    id,
+    address,
+    target,
+    location,
+    images,
+    is_active
 FROM address
 WHERE id = $1
 AND is_active = '0'
@@ -13,8 +19,7 @@ SELECT
     id,
     address,
     target,
-    location,
-    images
+    location
 FROM address
 WHERE is_deleted = '0';
 `;
