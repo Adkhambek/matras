@@ -1,22 +1,22 @@
 const router = require("express").Router();
-const model = require("../../models/interest");
+const model = require("../../models/order");
 const schema = require("../../lib/validationSchema");
 const { validation } = require("../../middleware/validation");
-const { interestMsg } = require("../../config/message");
+const { orderMsg } = require("../../config/message");
 const { pgLimit } = require("../../config/keys");
 
 router.get("/", async (req, res) => {
     try {
-        const interests = await model.getAllInterests();
+        const orders = await model.getAllOrders();
         res.status(200).json({
             statusCode: 200,
-            results: interests.length,
-            data: interests
+            results: orders.length,
+            data: orders
         });
     } catch (error) {
         res.status(400).json({
             statusCode: 400,
-            error: interestMsg.requestErr
+            error: orderMsg.requestErr
         });
     }
 });
@@ -24,114 +24,94 @@ router.get("/", async (req, res) => {
 router.get("/page/:pageNum", async (req, res) => {
     try {
         const pageNum = req.params.pageNum * 1;
-        const { total } = await model.totalInterests();
+        const { total } = await model.totalOrders();
         const Totalpage = Math.ceil(total / pgLimit);
         if(pageNum === 0 || pageNum > Totalpage) {
             res.status(200).json({
                 statusCode: 400,
-                error: interestMsg.invalidPage
+                error: orderMsg.invalidPage
             });
         } else {
             const offset = (pageNum - 1) * pgLimit;
-            const interests = await model.pagination(offset, pgLimit); 
+            const orders = await model.pagination(offset, pgLimit); 
             res.status(200).json({
                 statusCode: 200,
-                results: interests.length,
-                data: interests
+                results: orders.length,
+                data: orders
             });
         }
     } catch (error) {
         res.status(400).json({
             statusCode: 400,
-            error: interestMsg.requestErr
+            error: orderMsg.requestErr
         });
     }
 });
 
 router.get("/search", async (req, res) => {
     try {
-        const interests = await model.search(req.query.key);
-        if(interests.length) {
+        console.log(req.query.key);
+        const orders = await model.search(req.query.key);
+        if(orders.length) {
             res.status(200).json({
                 statusCode: 200,
-                results: interests.length,
-                data: interests
+                results: orders.length,
+                data: orders
             });
         } else {
             res.status(404).json({
                 statusCode: 404,
-                error: interestMsg.notFound
+                error: orderMsg.notFound
             });  
         }
         
     } catch (error) {
         res.status(400).json({
             statusCode: 400,
-            error: interestMsg.requestErr
+            error: orderMsg.requestErr
         });
     }
 });
 
-router.post("/", validation(schema.interestSchema), async (req, res) => {
+router.post("/", validation(schema.orderSchema), async (req, res) => {
     try {
-        await model.addInterest(req.body.phone);
+        await model.addOrder(req.body);
         res.status(201).json({
             statusCode: 201,
             message: {
-                accept: interestMsg.successAccept,
-                connect: interestMsg.connect
+                accept: orderMsg.successAccept,
+                connect: orderMsg.connect
             }
         }); 
         
     } catch (error) {
-        console.log(error);
         res.status(400).json({
             statusCode: 400,
-            error: interestMsg.requestErr
+            error: orderMsg.requestErr
         });    
     }
 });
 
 router.patch("/check/:id", async (req, res) => {
     try {
-        const interestId = req.params.id * 1;
+        const orderId = req.params.id * 1;
         if(req.body.check) {
-            await model.checkInterest(interestId);
+            await model.checkOrder(orderId);
             res.status(200).json({
                 statusCode: 200,
-                message: interestMsg.checked,
+                message: orderMsg.checked,
             });
         } else {
-            await model.unCheckInterest(interestId);
+            await model.unCheckOrder(orderId);
             res.status(200).json({
                 statusCode: 200,
-                message: interestMsg.unchecked,
+                message: orderMsg.unchecked,
             });
         }
-        
-
-    } catch (error) {
+      } catch (error) {
         res.status(400).json({
             statusCode: 400,
-            error: modelMsg.requestErr
-        });    
-    }
-});
-
-router.patch("/delete/:id", async (req, res) => {
-    try {
-        const interestId = req.params.id * 1;
-        await model.deleteInterest(interestId);
-
-        res.status(200).json({
-            statusCode: 200,
-            message: interestMsg.successDelete,
-        });
-
-    } catch (error) {
-        res.status(400).json({
-            statusCode: 400,
-            error: interestMsg.requestErr
+            error: orderMsg.requestErr
         });    
     }
 });

@@ -1,5 +1,5 @@
 const Joi = require("joi");
-const { joiValidation, interestMsg } = require("../config/message")
+const { joiValidation, interestMsg, orderMsg } = require("../config/message")
 
 exports.bannerSchema = Joi.object({
     title: Joi.string().max(100).required().messages({
@@ -135,6 +135,28 @@ exports.interestSchema = Joi.object({
         "any.required": interestMsg.phoneEmptyErr,
         "string.pattern.base": interestMsg.phoneErr,
         "string.max": interestMsg.phoneErr 
+    })
+});
+
+exports.orderSchema = Joi.object({
+    name: Joi.string().required().max(20).messages({
+        "string.empty": orderMsg.emptyField,
+        "any.required": orderMsg.emptyField,
+        "string.max": orderMsg.letterLimit
+    }),
+    phone: Joi.string().required().max(9).pattern(/^[0-9]+$/).messages({
+        "string.empty": orderMsg.emptyField,
+        "any.required": orderMsg.emptyField,
+        "string.pattern.base": orderMsg.phoneErr,
+        "string.max": orderMsg.phoneErr 
+    }),
+    productId: Joi.number().messages({
+        "number.base": joiValidation.numberBase("productId"),
+        "any.required": joiValidation.anyRequired("productId")
+    }),
+    amount: Joi.number().messages({
+        "number.base": joiValidation.numberBase("amount"),
+        "any.required": joiValidation.anyRequired("amount")
     })
 });
 

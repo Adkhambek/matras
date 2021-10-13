@@ -54,14 +54,13 @@ CREATE TABLE products (
     is_active active_num default '0',
     is_deleted delete_num default '0',
     model_id int references models(id),
-    date timestamptz default current_timestamp
+    date timestamptz default current_timestamp 
 );
 
 CREATE TABLE orders (
     id serial primary key,
     name varchar(20),
-    tel varchar(7),
-    product varchar(100),
+    tel varchar(9),
     product_id int references products(id),
     amount int,
     is_checked check_num default '0',

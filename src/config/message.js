@@ -66,6 +66,19 @@ module.exports = {
         notFound: "Nothing found",
         requestErr: "Your request could not be processed. Please try it again"
     },
+    orderMsg: {
+        successAccept: "Arizangiz muvaffaqiyatli yuborildi", 
+        connect: "Tez orada operatorlarimiz siz bilan bog’lanishadi",
+        phoneErr: "Raqamni xato kiritdingiz. Iltimos, qaytadan to'g'irlab kiriting!",
+        phoneEmptyErr: "Raqamni kiritmadingiz!",
+        letterLimit: "20 tagacha harf kirita olasiz",
+        checked: "The order was checked successfully!",
+        unchecked: "The order was unchecked",
+        emptyField: "Ba'zi ma'lumot kiritmagansiz!",
+        invalidPage: "Invalid page number",
+        notFound: "Nothing found",
+        requestErr: "Your request could not be processed. Please try it again"
+    },
     joiValidation: {
             stringBase: (nameField) => `${nameField} should be a type of text`,
             stringEmpty: (nameField) => `${nameField} cannot be an empty field`,
