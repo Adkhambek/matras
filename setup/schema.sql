@@ -82,6 +82,7 @@ CREATE TABLE interest (
     id serial primary key,
     tel varchar(7),
     is_checked check_num default '0',
+    is_deleted delete_num default '0',
     date timestamptz default current_timestamp
 );
 
