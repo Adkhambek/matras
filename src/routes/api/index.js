@@ -14,6 +14,6 @@ router.use("/models", modelRoutes);
 router.use("/products", productRoutes);
 router.use("/technologies", technologyRoutes);
 router.use("/address", addressRoutes);
-router.use("/interest", interestRoutes);
+router.use("/interests", interestRoutes);
 
 module.exports = router;

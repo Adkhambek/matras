@@ -1,5 +1,5 @@
 const Joi = require("joi");
-const { joiValidation } = require("../config/message")
+const { joiValidation, interestMsg } = require("../config/message")
 
 exports.bannerSchema = Joi.object({
     title: Joi.string().max(100).required().messages({
@@ -127,6 +127,15 @@ exports.addressSchema = Joi.object({
         "any.required": joiValidation.anyRequired("location")
     }),
     active: Joi.boolean().required()
-})
+});
+
+exports.interestSchema = Joi.object({
+    phone: Joi.string().required().max(9).pattern(/^[0-9]+$/).messages({
+        "string.empty": interestMsg.phoneEmptyErr,
+        "any.required": interestMsg.phoneEmptyErr,
+        "string.pattern.base": interestMsg.phoneErr,
+        "string.max": interestMsg.phoneErr 
+    })
+});
 
 // .options({ abortEarly: false })

@@ -54,6 +54,18 @@ module.exports = {
         limitErr: "You can only add up to 3 image!",
         requestErr: "Your request could not be processed. Please try it again"
     },
+    interestMsg: {
+        successAccept: "Arizangiz muvaffaqiyatli qabul qilindi ✅", 
+        connect: "Siz bilan tez orada bog’lanamiz 😊",
+        phoneErr: "Raqamni xato kiritdingiz. Iltimos, qaytadan to'g'irlab kiriting!",
+        phoneEmptyErr: "Raqamni kiritmadingiz!",
+        checked: "The interest was checked successfully!",
+        unchecked: "The interest was unchecked",
+        successDelete: "The interest was deleted successfully!",
+        invalidPage: "Invalid page number",
+        notFound: "Nothing found",
+        requestErr: "Your request could not be processed. Please try it again"
+    },
     joiValidation: {
             stringBase: (nameField) => `${nameField} should be a type of text`,
             stringEmpty: (nameField) => `${nameField} cannot be an empty field`,

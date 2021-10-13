@@ -2,7 +2,7 @@ const router = require("express").Router();
 const model = require("../../models/model");
 const schema = require("../../lib/validationSchema");
 const { validation } = require("../../middleware/validation");
-const { modelMsg } = require("../../config/message");
+const { modelMsg } = require("../../config/message"); 
 
 router.get("/", async (req, res) => {
     try {

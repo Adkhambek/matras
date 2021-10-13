@@ -8,7 +8,7 @@ CREATE TYPE status_num AS ENUM ('0', '1', '2', '3');
 CREATE TYPE active_num AS ENUM ('0', '1');
 -- 0 -> active;
 -- 1 -> disable;
-CREATE TYPE check_num AS ENUM ('0', '2');
+CREATE TYPE check_num AS ENUM ('0', '1');
 -- 0 -> unchecked;
 -- 1 -> checked;
 CREATE TYPE delete_num AS ENUM ('0', '1');
@@ -80,7 +80,7 @@ CREATE TABLE address (
 
 CREATE TABLE interest (
     id serial primary key,
-    tel varchar(7),
+    tel varchar(9),
     is_checked check_num default '0',
     is_deleted delete_num default '0',
     date timestamptz default current_timestamp
