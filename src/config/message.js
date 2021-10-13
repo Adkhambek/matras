@@ -43,6 +43,17 @@ module.exports = {
         limitErr: "You can only add up to 3 data!",
         requestErr: "Your request could not be processed. Please try it again"
     },
+    addressMsg: {
+        successAdd: "The address was added successfully!",
+        successEdit: "The address was updated successfully!",
+        successDisable: "The address was disabled successfully!",
+        successActive: "The address was active successfully!",
+        successDelete: "The address was deleted successfully!",
+        fileSizeErr: `File size cannot be larger than ${imageMaxSize}!`,
+        imageEmptyErr: "Image is required!",
+        limitErr: "You can only add up to 3 image!",
+        requestErr: "Your request could not be processed. Please try it again"
+    },
     joiValidation: {
             stringBase: (nameField) => `${nameField} should be a type of text`,
             stringEmpty: (nameField) => `${nameField} cannot be an empty field`,

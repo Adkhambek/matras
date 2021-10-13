@@ -72,7 +72,7 @@ CREATE TABLE address (
     address varchar(50),
     target text,
     location text,
-    images text [],
+    images text,
     is_active active_num default '0',
     is_deleted delete_num default '0'
 );

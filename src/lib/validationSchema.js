@@ -108,4 +108,25 @@ exports.technologySchema = Joi.object({
     active: Joi.boolean().required()
 });
 
+exports.addressSchema = Joi.object({
+    address: Joi.string().max(50).required().messages({
+        "string.base": joiValidation.stringBase("address"),
+        "string.empty": joiValidation.stringEmpty("address"),
+        "string.max": joiValidation.stringMax("address"),
+        "any.required": joiValidation.anyRequired("address")
+    }),
+    target: Joi.string().max(100).required().messages({
+        "string.base": joiValidation.stringBase("target"),
+        "string.empty": joiValidation.stringEmpty("target"),
+        "string.max": joiValidation.stringMax("target"),
+        "any.required": joiValidation.anyRequired("target")
+    }),
+    location: Joi.string().required().messages({
+        "string.base": joiValidation.stringBase("location"),
+        "string.empty": joiValidation.stringEmpty("location"),
+        "any.required": joiValidation.anyRequired("location")
+    }),
+    active: Joi.boolean().required()
+})
+
 // .options({ abortEarly: false })

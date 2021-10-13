@@ -1,5 +1,5 @@
 const { upload } = require("../lib/malter");
-const { bannerMsg, technologyMsg } = require("../config/message");
+const { bannerMsg, technologyMsg, addressMsg } = require("../config/message");
 const {countBanners} = require("../models/banner");
 const {countTechnologies} = require("../models/technology");
 
@@ -113,4 +113,35 @@ exports.technologyUpload = async (req, res, next) => {
             error: technologyMsg.limitErr
         });   
     } 
+}
+
+exports.addressUpload = async (req, res, next) => {
+    return upload("address").array("images", 3)(req, res, err => {
+        if (err) {
+            if(err.code === "LIMIT_FILE_SIZE") {
+             return res.status(400).json({
+                    statusCode: 400,
+                    detail: addressMsg.fileSizeErr
+                })
+            }
+            return res.status(400).json({
+                statusCode: 400,
+                detail: err.message
+            });
+        } else {
+            if (req.fileFormatError) {
+                return res.status(400).json({
+                    statusCode: 400,
+                    detail: req.fileFormatError
+                });
+            } else if (!req.files.length) {
+                return res.status(400).json({
+                    statusCode: 400,
+                    detail: addressMsg.imageEmptyErr
+                });
+            } else {
+                return next();
+            } 
+        }
+    });  
 }
