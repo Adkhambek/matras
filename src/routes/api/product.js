@@ -5,6 +5,7 @@ const schema = require("../../lib/validationSchema");
 const { validation } = require("../../middleware/validation");
 const { productMsg } = require("../../config/message");
 const {deleteFile, imagePath} = require("../../lib/helper");
+const { protect } = require("../../middleware/protect");
 
 router.get("/", async (req, res) => {
     try {
@@ -26,7 +27,7 @@ router.get("/", async (req, res) => {
 
 });
 
-router.get("/all", async (req, res) => {
+router.get("/all", protect, async (req, res) => {
     try {
         const products = await model.getAllProducts();
         res.status(200).json({
@@ -98,7 +99,7 @@ router.get("/model/:id", async (req, res) => {
 
 });
 
-router.post("/", productUpload, validation(schema.productSchema), async (req, res) => {
+router.post("/", protect, productUpload, validation(schema.productSchema), async (req, res) => {
     try {
         let imageNames = req.files.map(e => e = e.filename);
         imageNames = JSON.stringify(imageNames);
@@ -148,7 +149,7 @@ router.post("/", productUpload, validation(schema.productSchema), async (req, re
     }
 });
 
-router.patch("/:id", productUpload, validation(schema.productSchema), async (req, res) => {
+router.patch("/:id", protect, productUpload, validation(schema.productSchema), async (req, res) => {
     try {
         const productId = req.params.id * 1;
         let productImages = await model.getProductImages(productId);
@@ -204,7 +205,7 @@ router.patch("/:id", productUpload, validation(schema.productSchema), async (req
     }
 });
 
-router.patch("/active/:id", async (req, res) => {
+router.patch("/active/:id", protect, async (req, res) => {
     try {
         const productId = req.params.id * 1;
         if(req.body.active) {

@@ -5,6 +5,7 @@ const schema = require("../../lib/validationSchema");
 const { validation } = require("../../middleware/validation");
 const { bannerMsg } = require("../../config/message");
 const {deleteFile, imagePath} = require("../../lib/helper");
+const { protect } = require("../../middleware/protect");
 
 router.get("/", async (req, res) => {
     try {
@@ -23,7 +24,7 @@ router.get("/", async (req, res) => {
 
 });
 
-router.get("/all", async (req, res) => {
+router.get("/all", protect, async (req, res) => {
     try {
         const banners = await model.getAllBanners();
         res.status(200).json({
@@ -40,7 +41,7 @@ router.get("/all", async (req, res) => {
 
 });
 
-router.get("/:id", async (req, res) => {
+router.get("/:id", protect, async (req, res) => {
     try {
         const bannerId = req.params.id * 1;
         const banner = await model.getBanner(bannerId);
@@ -57,7 +58,7 @@ router.get("/:id", async (req, res) => {
 
 });
 
-router.post("/", bannerUpload, validation(schema.bannerSchema), async (req, res) => {
+router.post("/", protect, bannerUpload, validation(schema.bannerSchema), async (req, res) => {
     try {
         await model.addBanner(req.body.title, req.file.filename);
         res.status(201).json({
@@ -73,7 +74,7 @@ router.post("/", bannerUpload, validation(schema.bannerSchema), async (req, res)
     }
 });
 
-router.patch("/:id", bannerUpload, validation(schema.bannerSchema), async (req, res) => {
+router.patch("/:id", protect, bannerUpload, validation(schema.bannerSchema), async (req, res) => {
     try {
         const bannerId = req.params.id * 1;
         const banner = await model.getBanner(bannerId);
@@ -93,7 +94,7 @@ router.patch("/:id", bannerUpload, validation(schema.bannerSchema), async (req, 
     
 });
 
-router.patch("/disable/:id", async (req, res) => {
+router.patch("/disable/:id", protect, async (req, res) => {
     try {
         const bannerId = req.params.id * 1;
         await model.disableBanner(bannerId);
@@ -111,7 +112,7 @@ router.patch("/disable/:id", async (req, res) => {
     }    
 });
 
-router.patch("/delete/:id", async (req, res) => {
+router.patch("/delete/:id", protect, async (req, res) => {
     try {
         const bannerId = req.params.id * 1;
         await model.deleteBanner(bannerId);

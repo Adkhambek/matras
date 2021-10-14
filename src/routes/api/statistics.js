@@ -3,7 +3,7 @@ const model = require("../../models/statistics");
 const schema = require("../../lib/validationSchema");
 const { validation } = require("../../middleware/validation");
 const { statisticsMsg } = require("../../config/message");
-const { protect } = require("../../middleware/protect")
+const { protect } = require("../../middleware/protect");
 
 router.get("/", async (req, res) => {
     try {

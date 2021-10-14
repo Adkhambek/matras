@@ -3,8 +3,7 @@ const model = require("../../models/auth");
 const schema = require("../../lib/validationSchema");
 const { validation } = require("../../middleware/validation");
 const { authMsg } = require("../../config/message");
-const jwt = require("../../lib/jwt")
-const {protect} = require("../../middleware/protect");
+const jwt = require("../../lib/jwt");
 
 router.post("/login", validation(schema.loginSchema), async (req, res) => {
         try {
@@ -27,10 +26,6 @@ router.post("/login", validation(schema.loginSchema), async (req, res) => {
                 error: authMsg.requestErr
             });
         }
-});
-
-router.get("/test", protect, async(req, res) => {
-    res.send("ok");
 });
 
 module.exports = router

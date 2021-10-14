@@ -4,6 +4,7 @@ const schema = require("../../lib/validationSchema");
 const { validation } = require("../../middleware/validation");
 const { orderMsg } = require("../../config/message");
 const { pgLimit } = require("../../config/keys");
+const { protect } = require("../../middleware/protect");
 
 router.get("/", async (req, res) => {
     try {
@@ -21,7 +22,7 @@ router.get("/", async (req, res) => {
     }
 });
 
-router.get("/page/:pageNum", async (req, res) => {
+router.get("/page/:pageNum", protect, async (req, res) => {
     try {
         const pageNum = req.params.pageNum * 1;
         const { total } = await model.totalOrders();
@@ -48,7 +49,7 @@ router.get("/page/:pageNum", async (req, res) => {
     }
 });
 
-router.get("/search", async (req, res) => {
+router.get("/search", protect, async (req, res) => {
     try {
         console.log(req.query.key);
         const orders = await model.search(req.query.key);
@@ -73,7 +74,7 @@ router.get("/search", async (req, res) => {
     }
 });
 
-router.post("/", validation(schema.orderSchema), async (req, res) => {
+router.post("/", protect, validation(schema.orderSchema), async (req, res) => {
     try {
         await model.addOrder(req.body);
         res.status(201).json({
@@ -92,7 +93,7 @@ router.post("/", validation(schema.orderSchema), async (req, res) => {
     }
 });
 
-router.patch("/check/:id", async (req, res) => {
+router.patch("/check/:id", protect, async (req, res) => {
     try {
         const orderId = req.params.id * 1;
         if(req.body.check) {

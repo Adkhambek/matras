@@ -4,6 +4,7 @@ const schema = require("../../lib/validationSchema");
 const { validation } = require("../../middleware/validation");
 const { interestMsg } = require("../../config/message");
 const { pgLimit } = require("../../config/keys");
+const { protect } = require("../../middleware/protect");
 
 router.get("/", async (req, res) => {
     try {
@@ -21,7 +22,7 @@ router.get("/", async (req, res) => {
     }
 });
 
-router.get("/page/:pageNum", async (req, res) => {
+router.get("/page/:pageNum", protect, async (req, res) => {
     try {
         const pageNum = req.params.pageNum * 1;
         const { total } = await model.totalInterests();
@@ -48,7 +49,7 @@ router.get("/page/:pageNum", async (req, res) => {
     }
 });
 
-router.get("/search", async (req, res) => {
+router.get("/search", protect, async (req, res) => {
     try {
         const interests = await model.search(req.query.key);
         if(interests.length) {
@@ -72,7 +73,7 @@ router.get("/search", async (req, res) => {
     }
 });
 
-router.post("/", validation(schema.interestSchema), async (req, res) => {
+router.post("/", protect, validation(schema.interestSchema), async (req, res) => {
     try {
         await model.addInterest(req.body.phone);
         res.status(201).json({
@@ -92,7 +93,7 @@ router.post("/", validation(schema.interestSchema), async (req, res) => {
     }
 });
 
-router.patch("/check/:id", async (req, res) => {
+router.patch("/check/:id", protect, async (req, res) => {
     try {
         const interestId = req.params.id * 1;
         if(req.body.check) {
@@ -118,7 +119,7 @@ router.patch("/check/:id", async (req, res) => {
     }
 });
 
-router.patch("/delete/:id", async (req, res) => {
+router.patch("/delete/:id", protect, async (req, res) => {
     try {
         const interestId = req.params.id * 1;
         await model.deleteInterest(interestId);

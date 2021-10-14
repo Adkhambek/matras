@@ -3,6 +3,7 @@ const model = require("../../models/model");
 const schema = require("../../lib/validationSchema");
 const { validation } = require("../../middleware/validation");
 const { modelMsg } = require("../../config/message"); 
+const { protect } = require("../../middleware/protect");
 
 router.get("/", async (req, res) => {
     try {
@@ -20,7 +21,7 @@ router.get("/", async (req, res) => {
     }
 });
 
-router.get("/all", async (req, res) => {
+router.get("/all", protect, async (req, res) => {
     try {
         const models = await model.getAllModels();
         res.status(200).json({
@@ -36,7 +37,7 @@ router.get("/all", async (req, res) => {
     }
 });
 
-router.post("/", validation(schema.modelSchema), async (req, res) => {
+router.post("/", protect, validation(schema.modelSchema), async (req, res) => {
     try {
         if(req.body.active) {
             await model.addModel(req.body.name);
@@ -57,7 +58,7 @@ router.post("/", validation(schema.modelSchema), async (req, res) => {
     }
 })
 
-router.get("/:id", async (req, res) => {
+router.get("/:id", protect, async (req, res) => {
     try {
         const modelId = req.params.id * 1;
         const models = await model.getModel(modelId);
@@ -73,7 +74,7 @@ router.get("/:id", async (req, res) => {
     }
 });
 
-router.patch("/:id", validation(schema.modelSchema), async (req, res) => {
+router.patch("/:id", protect, validation(schema.modelSchema), async (req, res) => {
     try {
         const modelId = req.params.id * 1;
         await model.updateModel(req.body.name, modelId);
@@ -91,7 +92,7 @@ router.patch("/:id", validation(schema.modelSchema), async (req, res) => {
     
 });
 
-router.patch("/active/:id", async (req, res) => {
+router.patch("/active/:id", protect, async (req, res) => {
     try {
         const modelId = req.params.id * 1;
         if(req.body.active) {
@@ -117,7 +118,7 @@ router.patch("/active/:id", async (req, res) => {
     }
 });
 
-router.patch("/delete/:id", async (req, res) => {
+router.patch("/delete/:id", protect, async (req, res) => {
     try {
         const modelId = req.params.id * 1;
         await model.deleteModel(modelId);

@@ -5,6 +5,7 @@ const schema = require("../../lib/validationSchema");
 const { validation } = require("../../middleware/validation");
 const { technologyMsg } = require("../../config/message");
 const {deleteFile, imagePath} = require("../../lib/helper");
+const { protect } = require("../../middleware/protect");
 
 router.get("/", async (req, res) => {
     try {
@@ -23,7 +24,7 @@ router.get("/", async (req, res) => {
 
 });
 
-router.get("/all", async (req, res) => {
+router.get("/all", protect, async (req, res) => {
     try {
         const technologies = await model.getAllTechnologies();
         res.status(200).json({
@@ -39,7 +40,7 @@ router.get("/all", async (req, res) => {
     }    
 })
 
-router.post("/", technologyUpload, validation(schema.technologySchema), async (req, res) => {
+router.post("/", protect, technologyUpload, validation(schema.technologySchema), async (req, res) => {
     try {
         if(req.body.active === "true") {
             await model.addTechnology(req.body, req.file.filename);
@@ -61,7 +62,7 @@ router.post("/", technologyUpload, validation(schema.technologySchema), async (r
     }
 });
 
-router.patch("/:id", technologyUpload, validation(schema.technologySchema), async (req, res) => {
+router.patch("/:id", protect, technologyUpload, validation(schema.technologySchema), async (req, res) => {
     try {
         const techId = req.params.id * 1;
         const techImage = await model.getTechnologyImage(techId);
@@ -86,7 +87,7 @@ router.patch("/:id", technologyUpload, validation(schema.technologySchema), asyn
     }
 });
 
-router.patch("/delete/:id", async (req, res) => {
+router.patch("/delete/:id", protect, async (req, res) => {
     try {
         const technologyId = req.params.id * 1;
         await model.deleteTechnology(technologyId);
