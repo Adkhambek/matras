@@ -8,6 +8,7 @@ const technologyRoutes = require("./technology");
 const addressRoutes = require("./address");
 const interestRoutes = require("./interest");
 const orderRoutes = require("./order");
+const authRoutes = require("./auth");
 
 router.use("/banners", bannerRoutes);
 router.use("/statistics", statisticsRoutes);
@@ -17,5 +18,6 @@ router.use("/technologies", technologyRoutes);
 router.use("/address", addressRoutes);
 router.use("/interests", interestRoutes);
 router.use("/orders", orderRoutes);
+router.use("/auth", authRoutes);
 
 module.exports = router;

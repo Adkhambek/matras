@@ -79,6 +79,16 @@ module.exports = {
         notFound: "Nothing found",
         requestErr: "Your request could not be processed. Please try it again"
     },
+    authMsg: {
+        successLogin: "Successful logged in",
+        notLogin: "You are not logged in! Please log in to get access.",
+        notExist: "The user belonging to this token does no longer exist.",
+        invalidToken: "Invalid token. Please, log in again!",
+        tokenExpired: "Your token has expired. Please, log in again!",
+        changePassword: "User recently changed password! Please log in again.",
+        incorrectLogin: "username or password is incorrect. Please, try one more time.",
+        requestErr: "Your request could not be processed. Please try it again"
+    },
     joiValidation: {
             stringBase: (nameField) => `${nameField} should be a type of text`,
             stringEmpty: (nameField) => `${nameField} cannot be an empty field`,

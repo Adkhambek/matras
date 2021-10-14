@@ -160,4 +160,17 @@ exports.orderSchema = Joi.object({
     })
 });
 
+exports.loginSchema = Joi.object({
+    username: Joi.string().required().messages({
+        "string.base": joiValidation.stringBase("username"),
+        "string.empty": joiValidation.stringEmpty("username"),
+        "any.required": joiValidation.anyRequired("username")  
+    }),
+    password: Joi.string().required().messages({
+        "string.base": joiValidation.stringBase("password"),
+        "string.empty": joiValidation.stringEmpty("password"),
+        "any.required": joiValidation.anyRequired("password")  
+    })
+})
+
 // .options({ abortEarly: false })
