@@ -1,4 +1,5 @@
 require("dotenv").config();
+const path = require("path");
 const express = require("express");
 const { createProxyMiddleware } = require("http-proxy-middleware");
 const PORT = 7000;
@@ -10,8 +11,11 @@ app.use(`/${process.env.API_BASE_URL}`, createProxyMiddleware({
     changeOrigin: true
 }));
 
-app.use("/", (req, res) => {
-    res.send("OK");
+app.use(express.static(path.join(__dirname, "public")));
+app.use("/images", express.static(path.join(process.cwd(), "server", "image")));
+
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "index.html"));
 });
 
 

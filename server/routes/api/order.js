@@ -6,7 +6,7 @@ const { orderMsg } = require("../../config/message");
 const { pgLimit } = require("../../config/keys");
 const { protect } = require("../../middleware/protect");
 
-router.get("/", async (req, res) => {
+router.get("/", protect, async (req, res) => {
     try {
         const orders = await model.getAllOrders();
         res.status(200).json({

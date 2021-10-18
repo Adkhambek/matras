@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mebellar.uz</title>
+
+    <!-- SLIDER STYLES -->
+
+    <link rel="stylesheet" type="text/css" href="/slick-1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="/slick-1.8.1/slick/slick-theme.css" />
+
+    <!-- CSS STYLES -->
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/main.css">
+
+    <!-- FONT STYLES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Raleway:wght@400;500;600;700;800&family=Josefin+Sans:wght@400;500;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header id="header">
+        <div class="overlay notActive"></div>
+        <div class="container">
+            <div class="header-top">
+                <nav class="navbar">
+                    <ul class="navbar-list">
+                        <li class="navbar-item"><a href="#katalog" class="navbar-link">Katalog</a></li>
+                        <li class="navbar-item"><a href="#aksiya" class="navbar-link">Aksiya</a></li>
+                        <li class="navbar-item"><a href="#haqimizda" class="navbar-link">Biz haqimizda</a></li>
+                        <li class="navbar-item"><a href="#manzil" class="navbar-link">Manzilimiz</a></li>
+                        <li class="navbar-item"><a href="#aloqa" class="navbar-link">Aloqa</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="header-bottom">
+                <div class="header-bottom-inner">
+                    <a href="/index.html">
+                        <img src="/img/logo.svg" alt="Logo">
+                    </a>
+                    <div class="header-contact-info">
+                        <a class="contact-number" href="tel:+998901234567">+998 90 123 45 67</a>
+                        <a class="btn btn-white order-btn" href="#">Buyurtma berish</a>
+                        <button class="burger-btn">
+                            <img src="/img/burger-btn.svg" alt="">
+                        </button>
+                        <div class="burger-menu show">
+                            <div class="burger-menu__header">
+                                <div class="row">
+                                    <a href="index.html" class="burger-menu__logo">
+                                        <img src="/img/logo.svg" alt="logo" width="109" height="26">
+                                    </a>
+                                    <button type="button" class="burger-menu__close-btn">
+                                        <img src="/img/close.svg" alt="close btn">
+                                    </button>
+                                </div>
+                                <ul class="burger-menu__list">
+                                    <li class="burger-menu__item"><a href="#katalog" class="burger-menu__link">Katalog</a></li>
+                                    <li class="burger-menu__item"><a href="#aksiya" class="burger-menu__link">Aksiya</a></li>
+                                    <li class="burger-menu__item"><a href="#haqimizda" class="burger-menu__link">Biz haqimizda</a></li>
+                                    <li class="burger-menu__item"><a href="#manzil" class="burger-menu__link">Manzilimiz</a></li>
+                                    <li class="burger-menu__item"><a href="#aloqa" class="burger-menu__link">Aloqa</a></li>
+                                    
+                                </ul>
+                                <a class="btn btn-white burger-menu__order-btn" href="#">Buyurtma berish</a>
+                            </div>
+                            <div class="burger-menu__footer">
+                                <a class="contact-number burger-menu__contact-number" href="tel:+998901234567">+998 90 123 45 67</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section id="hero" class="hero">
+                <div class="hero-inner">
+                    <div class="hero-inner__carousel">
+                        <div class="my-carousel">
+                            <template class="my-carousel-temp">
+                                <div class="my-carousel__box">
+                                    <div class="hero-inner__content">
+                                        <h1 class="hero-inner__title">Kechalari sokin dam oling</h1>
+                                        <a class="btn btn-white btn-categories" href="#katalog">Kategoriyalar</a>
+                                    </div>
+                                    <img class="my-carousel__img" src="https://picsum.photos/id/25/700/380/" alt="">
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </header>
+    <main>
+        <section id="statistics">
+            <div class="container">
+                <div class="statistics-inner">
+                    <ul class="statistics-inner__list">
+                        <li class="statistics-inner__item">
+                            <h3 class="statistics-inner__title">7</h3>
+                            <p class="statistics-inner__info">yillik tajriba</p>
+                        </li>
+                        <li class="statistics-inner__item">
+                            <h3 class="statistics-inner__title">10k+</h3>
+                            <p class="statistics-inner__info">mamnun mijozlar</p>
+                        </li>
+                        <li class="statistics-inner__item">
+                            <h3 class="statistics-inner__title">10</h3>
+                            <p class="statistics-inner__info">yillik kafolat</p>
+                        </li>
+                        <li class="statistics-inner__item">
+                            <h3 class="statistics-inner__title">3</h3>
+                            <p class="statistics-inner__info">kunda yetkazish</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+         <section id="katalog">
+           <div class="catalog-inner">
+            <div class="container">
+                <h2 class="catalog-inner__title">
+                    Bizning mahsulotlar
+                </h2>
+                <ul class="catalog-inner__list">
+                    <li class="catalog-inner__item active">Barchasi</li>
+                    <li class="catalog-inner__item">Model A+</li>
+                    <li class="catalog-inner__item">Model B+</li>
+                    <li class="catalog-inner__item">Model C</li>
+                    <li class="catalog-inner__item">Model C+</li>
+                    <li class="catalog-inner__item">Model D</li>
+                    <li class="catalog-inner__item">Model Yevro</li>
+                    <li class="catalog-inner__item">Yangi tovarlar</li>
+                    <li class="catalog-inner__item">Model A</li>
+                    <li class="catalog-inner__item">Model C+</li>
+                    <li class="catalog-inner__item">Model D</li>
+                    <li class="catalog-inner__item">Model Yevro</li>
+                    <li class="catalog-inner__item">Yangi tovarlar</li>
+                    <li class="catalog-inner__item">Model A</li>
+                    
+                </ul>
+            </div>
+           </div>
+        </section>
+        <section id="aksiya" class="aksiya">
+            <div class="container">
+                <div class="stock-inner">
+                    <h2 class="stock-inner__title">
+                        Aksiyadagi mahsulotlar
+                    </h2>
+                    <div class="mattress-card">
+                        <div class="mattress-card__left">
+                            <span class="badget-span stock-span">Aksiya</span>
+                            <span class="mattress-card__left-zoom">
+
+                            </span>
+                            <img class="mattress-card__left-img" src="/img/mattress-1.png" alt="">
+                        </div>
+                        <div class="mattress-card__right">
+                            <h3 class="mattress-card__right-title">
+                                Ortopedik Eko matras
+                            </h3>
+                            <ul class="mattress-card__right-list">
+                                <li class="mattress-card__right-list-item">
+                                    <p class="mattress-card__right-list-item__option">Yuklama</p>
+                                    <b class="mattress-card__right-list-item__option-value">150kg</b>
+                                </li>
+                                <li class="mattress-card__right-list-item">
+                                    <p class="mattress-card__right-list-item__option">Kafolat</p>
+                                    <b class="mattress-card__right-list-item__option-value">3 yil</b>
+                                </li>
+                                <li class="mattress-card__right-list-item">
+                                    <p class="mattress-card__right-list-item__option">O’lchami</p>
+                                    <b class="mattress-card__right-list-item__option-value">200x120x40</b>
+                                </li>
+                                <li class="mattress-card__right-list-item">
+                                    <p class="mattress-card__right-list-item__option">Sig’imi</p>
+                                    <b class="mattress-card__right-list-item__option-value">2 kishilik</b>
+                                </li>
+                            </ul>
+                            <p class="mattress-card__right-summary">
+                                Penatibus viverra gravida rhoncus in. At turpis morbi ante tortor a est. Habitant
+                                adipiscing ut sed pulvinar tellus, ut urna, fermentum. Porttitor senectus lorem rhoncus
+                                facilisi ac dictum varius egestas.
+                            </p>
+                            <div class="mattress-card__right-price">
+                                <p class="mattress-card__right-price-option">Narxi</p>
+                                <b class="mattress-card__right-price-option-old-value"> <span>1 699 999</span>
+                                    <sub>so'm</sub></b>
+                                <b class="mattress-card__right-price-option-value"><span>1 299 999</span>
+                                    <sub>so'm</sub></b>
+                            </div>
+
+                            <a class="btn btn-white mattress-card__right-order-btn" href="#">Buyurtma berish</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="haqimizda">
+            <div class="container">
+                <div class="video-blog-inner">
+                    <h2 class="video-blog-inner__title">Ishlab chiqarish texnologiyalari</h2>
+                    <div class="video-blog-inner__carousel ">
+                        <div class="video-carousel__item">
+                            <h3 class="video-carousel__item__title">Memoriform</h3>
+                            <div class="video-carousel__item__video video video--enabled">
+                               <a class="video__link" href="https://www.youtube.com/watch?v=MibfI0TZgmI">
+                                <picture>
+                                    <source srcset="https://i.ytimg.com/vi_webp/MibfI0TZgmI/maxresdefault.webp" type="image/webp">
+                                    <img class="video__media" src="https://i.ytimg.com/vi/MibfI0TZgmI/maxresdefault.jpg" alt="">
+                                </picture>
+                               </a>
+                               <button class="video__btn" aria-label="play video">
+                                <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle class="video__circle" cx="30" cy="30" r="30"/>
+                                    <path d="M37.2002 27.7899C38.8002 28.7137 39.6002 29.1755 39.6002 29.8684C39.6002 30.5612 38.8002 31.0231 37.2002 31.9468L26.4002 38.1822C24.8002 39.106 24.0002 39.5678 23.4002 39.2214C22.8002 38.875 22.8002 37.9513 22.8002 36.1037V23.633C22.8002 21.7855 22.8002 20.8617 23.4002 20.5153C24.0002 20.1689 24.8002 20.6308 26.4002 21.5545L37.2002 27.7899Z" fill="white"/>
+                                    </svg>
+                                    
+                               </button>
+                            </div>
+                            <p class="video-carousel__item__summary">
+                                Lectus pellentesque senectus elit donec massa ipsum ultricies dui. Bibendum et enim fringilla tincidunt ligula non, condimentum nunc.
+                            </p>
+                        </div>
+                        <div class="video-carousel__item">
+                            <h3 class="video-carousel__item__title">Tabiiy lateks</h3>
+                            <div class="video-carousel__item__video video video--enabled">
+                               <a class="video__link" href="https://www.youtube.com/watch?v=JvFucfZPvv4">
+                                <picture>
+                                    <source srcset="https://i.ytimg.com/vi_webp/JvFucfZPvv4/maxresdefault.webp" type="image/webp">
+                                    <img class="video__media" src="https://i.ytimg.com/vi/JvFucfZPvv4/maxresdefault.jpg" alt="">
+                                </picture>
+                               </a>
+                               <button class="video__btn" aria-label="play video">
+                                <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle class="video__circle" cx="30" cy="30" r="30"/>
+                                    <path d="M37.2002 27.7899C38.8002 28.7137 39.6002 29.1755 39.6002 29.8684C39.6002 30.5612 38.8002 31.0231 37.2002 31.9468L26.4002 38.1822C24.8002 39.106 24.0002 39.5678 23.4002 39.2214C22.8002 38.875 22.8002 37.9513 22.8002 36.1037V23.633C22.8002 21.7855 22.8002 20.8617 23.4002 20.5153C24.0002 20.1689 24.8002 20.6308 26.4002 21.5545L37.2002 27.7899Z" fill="white"/>
+                                    </svg>
+                                    
+                               </button>
+                            </div>
+                            <p class="video-carousel__item__summary">
+                                Aliquam euismod ornare justo, sed faucibus eu. Sed amet tellus netus quis bibendum. Euismod diam eu sem tristique aenean rhoncus.
+                            </p>
+                        </div>
+                        <div class="video-carousel__item">
+                            <h3 class="video-carousel__item__title">Mustaqil prujina</h3>
+                            <div class="video-carousel__item__video video video--enabled">
+                               <a class="video__link" href="https://www.youtube.com/watch?v=5zKtEA1ifsw">
+                                <picture>
+                                    <source srcset="https://i.ytimg.com/vi_webp/5zKtEA1ifsw/maxresdefault.webp" type="image/webp">
+                                    <img class="video__media" src="https://i.ytimg.com/vi/5zKtEA1ifsw/maxresdefault.jpg" alt="">
+                                </picture>
+                               </a>
+                               <button class="video__btn" aria-label="play video">
+                                <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle class="video__circle" cx="30" cy="30" r="30"/>
+                                    <path d="M37.2002 27.7899C38.8002 28.7137 39.6002 29.1755 39.6002 29.8684C39.6002 30.5612 38.8002 31.0231 37.2002 31.9468L26.4002 38.1822C24.8002 39.106 24.0002 39.5678 23.4002 39.2214C22.8002 38.875 22.8002 37.9513 22.8002 36.1037V23.633C22.8002 21.7855 22.8002 20.8617 23.4002 20.5153C24.0002 20.1689 24.8002 20.6308 26.4002 21.5545L37.2002 27.7899Z" fill="white"/>
+                                    </svg>
+                                    
+                               </button>
+                            </div>
+                            <p class="video-carousel__item__summary">
+                                Enim urna consequat, justo, cras tincidunt imperdiet orci sodales. Dui purus feugiat morbi quam orci, vel. Elementum tincidunt blandit ultricies venenatis rhoncus.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="responsive-carousel">
+                        <div class="responsive-carousel__item">
+                            <h3 class="responsive-carousel__title">Memoriform</h3>
+                            <div class="responsive-carousel__video video video--enabled">
+                               <a class="video__link" href="https://www.youtube.com/watch?v=MibfI0TZgmI">
+                                <picture>
+                                    <source srcset="https://i.ytimg.com/vi_webp/MibfI0TZgmI/maxresdefault.webp" type="image/webp">
+                                    <img class="video__media" src="https://i.ytimg.com/vi/MibfI0TZgmI/maxresdefault.jpg" alt="">
+                                </picture>
+                               </a>
+                               <button class="video__btn" aria-label="play video">
+                                <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle class="video__circle" cx="30" cy="30" r="30"/>
+                                    <path d="M37.2002 27.7899C38.8002 28.7137 39.6002 29.1755 39.6002 29.8684C39.6002 30.5612 38.8002 31.0231 37.2002 31.9468L26.4002 38.1822C24.8002 39.106 24.0002 39.5678 23.4002 39.2214C22.8002 38.875 22.8002 37.9513 22.8002 36.1037V23.633C22.8002 21.7855 22.8002 20.8617 23.4002 20.5153C24.0002 20.1689 24.8002 20.6308 26.4002 21.5545L37.2002 27.7899Z" fill="white"/>
+                                    </svg>
+                                    
+                               </button>
+                            </div>
+                            <p class="responsive-carousel__summary">
+                                Lectus pellentesque senectus elit donec massa ipsum ultricies dui. Bibendum et enim fringilla tincidunt ligula non, condimentum nunc.
+                            </p>
+                        </div>
+                        <div class="responsive-carousel__item">
+                            <h3 class="responsive-carousel__title">Tabiiy lateks</h3>
+                            <div class="responsive-carousel__video video video--enabled">
+                               <a class="video__link" href="https://www.youtube.com/watch?v=JvFucfZPvv4">
+                                <picture>
+                                    <source srcset="https://i.ytimg.com/vi_webp/JvFucfZPvv4/maxresdefault.webp" type="image/webp">
+                                    <img class="video__media" src="https://i.ytimg.com/vi/JvFucfZPvv4/maxresdefault.jpg" alt="">
+                                </picture>
+                               </a>
+                               <button class="video__btn" aria-label="play video">
+                                <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle class="video__circle" cx="30" cy="30" r="30"/>
+                                    <path d="M37.2002 27.7899C38.8002 28.7137 39.6002 29.1755 39.6002 29.8684C39.6002 30.5612 38.8002 31.0231 37.2002 31.9468L26.4002 38.1822C24.8002 39.106 24.0002 39.5678 23.4002 39.2214C22.8002 38.875 22.8002 37.9513 22.8002 36.1037V23.633C22.8002 21.7855 22.8002 20.8617 23.4002 20.5153C24.0002 20.1689 24.8002 20.6308 26.4002 21.5545L37.2002 27.7899Z" fill="white"/>
+                                    </svg>
+                                    
+                               </button>
+                            </div>
+                            <p class="responsive-carousel__summary">
+                                Aliquam euismod ornare justo, sed faucibus eu. Sed amet tellus netus quis bibendum. Euismod diam eu sem tristique aenean rhoncus.
+                            </p>
+                        </div>
+                        <div class="responsive-carousel__item">
+                            <h3 class="responsive-carousel__title">Mustaqil prujina</h3>
+                            <div class="responsive-carousel__video video video--enabled">
+                               <a class="video__link" href="https://www.youtube.com/watch?v=5zKtEA1ifsw">
+                                <picture>
+                                    <source srcset="https://i.ytimg.com/vi_webp/5zKtEA1ifsw/maxresdefault.webp" type="image/webp">
+                                    <img class="video__media" src="https://i.ytimg.com/vi/5zKtEA1ifsw/maxresdefault.jpg" alt="">
+                                </picture>
+                               </a>
+                               <button class="video__btn" aria-label="play video">
+                                <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle class="video__circle" cx="30" cy="30" r="30"/>
+                                    <path d="M37.2002 27.7899C38.8002 28.7137 39.6002 29.1755 39.6002 29.8684C39.6002 30.5612 38.8002 31.0231 37.2002 31.9468L26.4002 38.1822C24.8002 39.106 24.0002 39.5678 23.4002 39.2214C22.8002 38.875 22.8002 37.9513 22.8002 36.1037V23.633C22.8002 21.7855 22.8002 20.8617 23.4002 20.5153C24.0002 20.1689 24.8002 20.6308 26.4002 21.5545L37.2002 27.7899Z" fill="white"/>
+                                    </svg>
+                                    
+                               </button>
+                            </div>
+                            <p class="responsive-carousel__summary">
+                                Enim urna consequat, justo, cras tincidunt imperdiet orci sodales. Dui purus feugiat morbi quam orci, vel. Elementum tincidunt blandit ultricies venenatis rhoncus.
+                            </p>
+                        </div>
+                    </div>
+                   
+                <div>
+            </div>
+        </section>
+        <section id="about">
+            <div class="container">
+                <div class="about-inner">
+                    <h2 class="visually-hidden">Dream Cloud kompaniyasi haqida</h2>
+                    <div class="about-box">
+                        <div class="about-box__left">
+                            <h2 class="about-box__title">
+                                Dream Cloud kompaniyasi haqida
+                            </h2>
+                            <p class="about-box__summary">
+                                Penatibus viverra gravida rhoncus in. At turpis morbi ante tortor a est. Habitant
+                                adipiscing ut sed pulvinar tellus, ut urna, fermentum:
+                            </p>
+                            <ul class="about-box__list">
+                                <li class="about-box__item">Penatibus viverra gravida rhoncus in.</li>
+                                <li class="about-box__item">Dolor integer in interdum viverra risus dolor
+                                    enim.</li>
+                                <li class="about-box__item">Turpis senectus eu, eget aenean nulla
+                                    pellentesque sed ut tempor.</li>
+                            </ul>
+                        </div>
+                        <div class="about-box__right">
+                            <div class="video video--enabled">
+                                <a class="video__link" href="https://www.youtube.com/watch?v=4JS70KB9GS0">
+                                 <picture>
+                                     <source srcset="https://i.ytimg.com/vi_webp/4JS70KB9GS0/maxresdefault.webp" type="image/webp">
+                                     <img class="video__media" src="https://i.ytimg.com/vi/4JS70KB9GS0/maxresdefault.jpg" alt="">
+                                 </picture>
+                                </a>
+                                <button class="video__btn" aria-label="play video">
+                                 <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                     <circle class="video__circle" cx="30" cy="30" r="30"/>
+                                     <path d="M37.2002 27.7899C38.8002 28.7137 39.6002 29.1755 39.6002 29.8684C39.6002 30.5612 38.8002 31.0231 37.2002 31.9468L26.4002 38.1822C24.8002 39.106 24.0002 39.5678 23.4002 39.2214C22.8002 38.875 22.8002 37.9513 22.8002 36.1037V23.633C22.8002 21.7855 22.8002 20.8617 23.4002 20.5153C24.0002 20.1689 24.8002 20.6308 26.4002 21.5545L37.2002 27.7899Z" fill="white"/>
+                                     </svg>
+                                </button>
+                             </div>
+                        </div>
+                    </div>
+                    <div class="about-box about-box-reverse">
+                        <div class="about-box__left about-box__left-reverse">
+                            <p class="about-box__summary">
+                                Libero erat praesent ullamcorper eget tortor sed et. Nec id lobortis gravida vitae.
+                                Scelerisque id fusce vitae ut. Integer sed vulputate sed nec. Arcu id mattis erat et id.
+                            </p>
+                            <ol class="about-box__list">
+                                <li class="about-box__item">Id risus phasellus laoreet eget. A nec pulvinar.
+                                </li>
+                                <li class="about-box__item">Eu justo, tincidunt fringilla diam nulla.</li>
+                                <li class="about-box__item">Amet, nullam cras lacus, fermentum leo tellus
+                                    sagittis.</li>
+                                <li class="about-box__item">Facilisi mauris condimentum sagittis odio rhoncus
+                                    semper.</li>
+                            </ol>
+                            <p class="about-box__info">
+                                Ac tortor volutpat pellentesque mauris nisi, praesent. Et tempus accumsan est elementum
+                                feugiat arcu mauris tincidunt. Eget faucibus pharetra et luctus eget ut fames. A cursus
+                                elementum egestas eu scelerisque id.
+                            </p>
+
+                        </div>
+                        <div class="about-box__right">
+                            <img src="/img/about-img-2.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+         <section id="select">
+            <div class="container">
+                <div class="select-inner">
+                    <h2 class="select-inner-title">
+                        Nega bizni tanlashadi
+                    </h2>
+                    <ul class="select-inner__card-list">
+                        <li class="select-inner__card-item">
+                            <img class="img select-inner__card-img" src="/img/select-img-1.png" alt="">
+                            <div class="select-inner__card-inner">
+                                <a href="#" class="select-inner__card-title">Yetkazib berish</a>
+                                <p class="select-inner__card-info">Toshkent bo'ylab bepul o'lchov va
+                                    etkazib berish</p>
+                            </div>
+                        </li>
+                        <li class="select-inner__card-item">
+                            <img class="img select-inner__card-img" src="/img/select-img-2.png" alt="">
+                            <div class="select-inner__card-inner">
+                                <a href="#" class="select-inner__card-title">Qo'llab-quvvatlash</a>
+                                <p class="select-inner__card-info">Bizning qo'llab-quvvatlash xizmati
+                                    sizga har qanday savolda yordam beradi va menejerlarning </p>
+                                <a class="select-inner__card-phone-link" href="tel:+998971442442">+998
+                                    97 144-24-42</a>
+                            </div>
+                        </li>
+                        <li class="select-inner__card-item">
+                            <img class="img select-inner__card-img" src="/img/select-img-3.png" alt="">
+                            <div class="select-inner__card-inner">
+                                <a href="#" class="select-inner__card-title">Kafolat</a>
+                                <p class="select-inner__card-info">Biz matraslarimiz uchun 8 yilgacha
+                                    kafolat beramiz. Agar matras kamida 25 mm qisqartirilsa.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section id="manzil" class="address">
+            <div class="container">
+                <h2 class="address-inner__title">Manzilimiz</h2>
+                <div class="address-inner">
+                  
+                    <template class="address-left-template">
+                        <div class="address-inner__left">
+                            <address class="address-inner__address">
+                                Toshkent, Parkent ko'chasi, 176-uy
+                            </address>
+                            <p >
+                                <address class="address-inner__destination">Mo’ljal: Qoraqamish 2/1, Tursunxodjayeva ro’parasi, Milliy bog’ metro bekati.
+                                </address>
+                            </p>
+                            <a class="address-inner__btn btn btn-white" href="https://goo.gl/maps/9mFFUASXNDqhAgc57"
+                                target="_blank">
+                                Geolokatsiya
+                            </a>
+                        </div>
+
+                        <div class="address-inner__right">
+                            <div class="address-inner__right-carousel">
+                                <div>
+                                    <img class="address-carousel-img" src="https://picsum.photos/id/100/525/320/" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </template>
+                </div>
+            </div>
+        </section>
+        <section id="aloqa" class="communication">
+            <div class="container">
+                <div class="communication-inner">
+                    <div class="communication-inner__left">
+                        <h2 class="communication-inner__title">Sizni qiziqtirdimi?</h2>
+                        <p class="communication-inner__info">Raqamingizni qoldiring, biz sizga yana qo'ng'iroq
+                            qilamiz</p>
+                    </div>
+                    <form class="communication-inner__right communication-inner__form"  >
+                        <span class="communication-inner__static-number">+998  |</span>
+                        <input id="telNumber" class="communication-inner__input" type="tel" name="userPhoneNumber"
+                            autocomplete="off" placeholder="Raqamingizni yozing" aria-label="send number"  required>
+                        <button class="communication-inner__btn btn " type="submit">Yuborish</button>
+                    </form>
+                </div>
+
+                <div class="communication-successful">
+                    <h2 class="communication-successful-title">Arizangiz muvaffaqiyatli <br> qabul qilindi ✅</h2>
+                    <p class="communication-successful-info">Siz bilan tez orada bog’lanamiz 😊</p>
+                </div>
+            </div>
+        </section>  
+    </main>
+    <div class="modal notActive">
+        <span class="modal__close">
+            <img src="/img/close.svg" alt="">
+        </span>
+        <h2 class="modal__title">Buyurtma qilish</h2>
+        <form class="modal__form" >
+            <input class="modal__name-input modal-input" name="user-name" required placeholder="Ismingizni yozing" aria-label="ismingizni yozing" type="text">
+            <div class="modal__tel-div">
+                <span class="modal__tel-span">+998</span>
+                <input class="modal__tel-input modal-input" name="user-telephone-number" required placeholder="Raqamingizni yozing" aria-label="Raqamingizni yozing" type="tel">
+            </div>
+            <label class="modal__select-label" for="selectProduct">Mahsulot toifasini tanlang</label>
+            <select id="selectProduct" class="modal-input modal__select-input" name="mahsulot-toifasi" required  id="">
+                <option value=""></option>
+                <option value="1">Model A</option>
+                <option value="2">Model B</option>
+            </select>
+            <label class="modal__input-group-label" for="select">Miqdorini tanlang</label>
+            <div class="modal__input-group modal-input">
+                <button type="button" class="count-decrement">-</button>
+                <input class="modal__count-input"  name="product count" type="number">
+                <button type="button" class="count-increment">+</button>
+            </div>
+            <button type="submit" class="submit-btn">Yuborish</button>
+        </form>
+        <div class="modal-succesfuled">
+            <span class="modal__succesfuled-close modal__close">
+                <img src="/img/close.svg" alt="">
+            </span>
+            <h3 class="modal-succesfuled__title">Arizangiz muvaffaqiyatli yuborildi</h3>
+            <div class="modal-succesfuled__content">
+                <p class="modal-succesfuled__text">Tez orada operatorlarimiz siz bilan bog’lanishadi</p>
+            </div>
+            <a class="modal-succesfuled__btn" href="index.html">Ok</a>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-inner__nav">
+                    <ul class="footer-inner__nav-list">
+                        <li class="footer-inner__nav-list__item">
+                            <a href="#haqimizda" class="footer-inner__nav-list__item-link">Biz haqimizda</a>
+                        </li>
+                        <li class="footer-inner__nav-list__item">
+                            <a href="#katalog" class="footer-inner__nav-list__item-link">Katalog</a>
+                        </li>
+                        <li class="footer-inner__nav-list__item">
+                            <a href="#aksiya" class="footer-inner__nav-list__item-link">Aksiya</a>
+                        </li>
+                        <li class="footer-inner__nav-list__item">
+                            <a href="#manzilimiz" class="footer-inner__nav-list__item-link">Manzilimiz</a>
+                        </li>
+                    </ul>
+                    <ul class="footer-inner__nav-social-list">
+                        <li class="footer-inner__nav-social-list-item">
+                            <a href="https://www.facebook.com/" target="_blank"
+                                class="footer-inner__nav-social-list-item-link">
+                                <img src="/img/facebook-icon.svg" alt="facebook">
+                            </a>
+                        </li>
+                        <li class="footer-inner__nav-social-list-item">
+                            <a href="https://www.twitter.com/" target="_blank"
+                                class="footer-inner__nav-social-list-item-link">
+                                <img src="/img/twitter-icon.svg" alt="twitter">
+                            </a>
+                        </li>
+                        <li class="footer-inner__nav-social-list-item">
+                            <a href="https://vimeo.com/" target="_blank"
+                                class="footer-inner__nav-social-list-item-link">
+                                <img src="/img/vimeo-icon.svg" alt="viemo">
+                            </a>
+                        </li>
+                        <li class="footer-inner__nav-social-list-item">
+                            <a href="https://www.youtube.com/" target="_blank"
+                                class="footer-inner__nav-social-list-item-link">
+                                <img src="/img/youtube-icon.svg" alt="youtube">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-inner__bottom">
+                    <p class="footer-inner__bottom-notice">© 2021 Dream Cloud. Barcha huquqlar himoyalangan.</p>
+                    <a class="footer-inner__bottom-arrow-up" href="#header">
+                        <img class="desktop-arrow" src="/img/arrow-up.svg" alt="arrowTop">
+                        <img class="mobile-arrow" src="/img/arrowup.svg" alt="arrow-top">
+                    </a>
+                    <a href="#"><img src="/img/vizitka.png" alt="developersCompany"></a>
+                </div>
+            </div>
+        </div>
+    </footer>   
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="./slick-1.8.1/slick/slick.min.js"></script>
+    <script src="/JS/carousel.js"></script>
+    <script src="/JS/video.js"></script>
+    <script src="/JS/fetch.js"></script>
+    <script src="/JS/main.js"></script>
+</body>
+
+</html>
