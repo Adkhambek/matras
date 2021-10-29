@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/server.js",
-    "dev:server": "nodemon server/server.js",
+    "dev:server": "cross-env NODE_ENV=development nodemon server/server.js",
     "dev:client": "nodemon client/server.js"
   },
   "keywords": [],
@@ -25,5 +25,8 @@
     "multer": "^1.4.3",
     "pg": "^8.7.1",
     "sequelize": "^6.6.5"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
   }
 }

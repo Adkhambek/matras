@@ -8,7 +8,7 @@ const {deleteFile, imagePath} = require("../../lib/helper");
 
 router.get("/", async (req, res) => {
     try {
-        const address = await model.getAddress(1);
+        const address = await model.getAddress();
         res.status(200).json({
             statusCode: 200,
             data: address

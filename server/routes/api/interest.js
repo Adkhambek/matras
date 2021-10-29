@@ -6,7 +6,7 @@ const { interestMsg } = require("../../config/message");
 const { pgLimit } = require("../../config/keys");
 const { protect } = require("../../middleware/protect");
 
-router.get("/", async (req, res) => {
+router.get("/", protect, async (req, res) => {
     try {
         const interests = await model.getAllInterests();
         res.status(200).json({
@@ -73,7 +73,7 @@ router.get("/search", protect, async (req, res) => {
     }
 });
 
-router.post("/", protect, validation(schema.interestSchema), async (req, res) => {
+router.post("/", validation(schema.interestSchema), async (req, res) => {
     try {
         await model.addInterest(req.body.phone);
         res.status(201).json({

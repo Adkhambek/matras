@@ -74,7 +74,7 @@ router.get("/search", protect, async (req, res) => {
     }
 });
 
-router.post("/", protect, validation(schema.orderSchema), async (req, res) => {
+router.post("/", validation(schema.orderSchema), async (req, res) => {
     try {
         await model.addOrder(req.body);
         res.status(201).json({

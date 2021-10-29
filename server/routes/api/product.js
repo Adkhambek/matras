@@ -63,7 +63,60 @@ router.get("/discount", async (req, res) => {
 
 });
 
-router.get("/:id", async (req, res) => {
+router.get("/images/:id", async (req, res) => {
+    try {
+        const productId = req.params.id * 1
+        const productImages = await model.getProductImages(productId);
+        return res.status(200).json({
+            statusCode: 200,
+            data: productImages
+        });
+    } catch (error) {
+        res.status(400).json({
+            statusCode: 400,
+            error: productMsg.requestErr,
+            errorMsg: error
+        });
+    }
+
+});
+
+router.get("/name/:id", async (req, res) => {
+    try {
+        const productId = req.params.id * 1
+        const productName = await model.getProductName(productId);
+        return res.status(200).json({
+            statusCode: 200,
+            data: productName
+        });
+    } catch (error) {
+        res.status(400).json({
+            statusCode: 400,
+            error: productMsg.requestErr,
+            errorMsg: error
+        });
+    }
+
+});
+
+router.get("/name", async (req, res) => {
+    try {
+        const productsName = await model.getProductsName();
+        return res.status(200).json({
+            statusCode: 200,
+            data: productsName
+        });
+    } catch (error) {
+        res.status(400).json({
+            statusCode: 400,
+            error: productMsg.requestErr,
+            errorMsg: error
+        });
+    }
+
+});
+
+router.get("/:id", protect, async (req, res) => {
     try {
         const productId = req.params.id * 1
         const product = await model.getProduct(productId);

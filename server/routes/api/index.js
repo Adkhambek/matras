@@ -8,7 +8,7 @@ const technologyRoutes = require("./technology");
 const addressRoutes = require("./address");
 const interestRoutes = require("./interest");
 const orderRoutes = require("./order");
-const authRoutes = require("./auth");
+const authRoutes = require("./auth"); 
 
 router.use("/banners", bannerRoutes);
 router.use("/statistics", statisticsRoutes);

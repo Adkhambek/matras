@@ -67,7 +67,7 @@ const UNCHECK_ORDER = `
 UPDATE orders  
 SET is_checked = '0'
 WHERE id = $1;
-`;
+`; 
 
 exports.totalOrders = () => fetch(TOTAL_ORDERS);
 exports.getAllOrders = () => fetchAll(GET_ALL_ORDERS);

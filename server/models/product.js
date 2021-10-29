@@ -78,6 +78,7 @@ FROM products
 WHERE id = $1;
 `
 
+
 const INSERT_PRODUCT = `
 INSERT INTO products(
     model_id,
@@ -142,8 +143,20 @@ WHERE id = $10;
 const GET_IMAGE = `
 SELECT images
 FROM products
-WHERE id = $1
+WHERE id = $1;
 `;
+
+const GET_PRODUCT_NAME = `
+SELECT id, name
+FROM products
+WHERE id = $1;
+`
+const GET_PRODUCTS_NAME = `
+SELECT id, name
+FROM products
+WHERE is_active = '0'
+AND is_deleted = '0';
+`
 
 exports.getProducts = () => fetchAll(GET_ACTIVE_PRODUCTS);
 exports.getAllProducts = () => fetchAll(GET_ALL_PRODUCTS);
@@ -158,3 +171,5 @@ exports.deleteProduct = (id) => fetch(DELETE_PRODUCT, id);
 exports.statusProduct = (status, id) => fetch(STATUS_PRODUCT, status, id);
 exports.discountProduct = (discount, id) => fetch(DISCOUNT_PRODUCT, discount, id);
 exports.getProductImages = (id) => fetch(GET_IMAGE, id);
+exports.getProductName = (id) => fetch(GET_PRODUCT_NAME, id);
+exports.getProductsName = () => fetchAll(GET_PRODUCTS_NAME);

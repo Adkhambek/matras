@@ -4,6 +4,9 @@ const { authMsg } = require("../config/message");
 const model = require("../models/auth");
 
 exports.protect = async (req, res, next) => {
+   if(process.env.NODE_ENV == "development"){
+     return next();
+   } else {
     let token;
     if (
       req.headers.authorization &&
@@ -43,4 +46,6 @@ exports.protect = async (req, res, next) => {
         }
       }
     }
+   }
+    
   };
