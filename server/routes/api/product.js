@@ -153,7 +153,7 @@ router.get("/model/:id", async (req, res) => {
 });
 
 router.post("/", protect, productUpload, validation(schema.productSchema), async (req, res) => {
-    try {
+    try { 
         let imageNames = req.files.map(e => e = e.filename);
         imageNames = JSON.stringify(imageNames);
         const {id} = await model.addProduct(req.body, imageNames);
@@ -184,8 +184,10 @@ router.post("/", protect, productUpload, validation(schema.productSchema), async
         } else if(req.body.discount === "true" && req.body.navinla === "true") {
             if(req.body.active === "false") {
                 await model.disableProduct(id); 
+                await model.statusProduct("3", id);
                 await model.discountProduct(req.body.discountPrice, id);
             } else {
+                await model.statusProduct("3", id);
                 await model.discountProduct(req.body.discountPrice, id);
             } 
         }

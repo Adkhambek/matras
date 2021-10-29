@@ -39,7 +39,7 @@ CREATE TABLE models (
     date timestamptz default current_timestamp
 );
 
-CREATE TABLE products (
+CREATE TABLE products ( 
     id serial primary key,
     name varchar(100),
     current_price int,
@@ -50,7 +50,7 @@ CREATE TABLE products (
     size varchar(20),
     capacity int,
     discount_price int default 0,
-    status status_num default '3',
+    status status_num default '1',
     is_active active_num default '0',
     is_deleted delete_num default '0',
     model_id int references models(id),

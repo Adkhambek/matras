@@ -73,8 +73,8 @@ module.exports = {
         phoneEmptyErr: "Raqamni kiritmadingiz!",
         letterLimit: "20 tagacha harf kirita olasiz",
         checked: "The order was checked successfully!",
-        unchecked: "The order was unchecked",
         emptyField: "Ba'zi ma'lumot kiritmagansiz!",
+        unchecked: "The order was unchecked",
         invalidPage: "Invalid page number",
         notFound: "Nothing found",
         requestErr: "Your request could not be processed. Please try it again"
