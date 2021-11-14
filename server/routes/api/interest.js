@@ -96,7 +96,7 @@ router.post("/", validation(schema.interestSchema), async (req, res) => {
 router.patch("/check/:id", protect, async (req, res) => {
     try {
         const interestId = req.params.id * 1;
-        if(req.body.check) {
+        if(req.body.check === "checked") {
             await model.checkInterest(interestId);
             res.status(200).json({
                 statusCode: 200,

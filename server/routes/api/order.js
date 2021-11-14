@@ -51,7 +51,6 @@ router.get("/page/:pageNum", protect, async (req, res) => {
 
 router.get("/search", protect, async (req, res) => {
     try {
-        console.log(req.query.key);
         const orders = await model.search(req.query.key);
         if(orders.length) {
             res.status(200).json({
@@ -96,7 +95,7 @@ router.post("/", validation(schema.orderSchema), async (req, res) => {
 router.patch("/check/:id", protect, async (req, res) => {
     try {
         const orderId = req.params.id * 1;
-        if(req.body.check) {
+        if(req.body.check === "checked") {
             await model.checkOrder(orderId);
             res.status(200).json({
                 statusCode: 200,

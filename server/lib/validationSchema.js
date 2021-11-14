@@ -105,7 +105,7 @@ exports.technologySchema = Joi.object({
         "string.max": joiValidation.stringMax("youtube link"),
         "any.required": joiValidation.anyRequired("youtube link")
     }),
-    active: Joi.boolean().required()
+    active: Joi.boolean().required() 
 });
 
 exports.addressSchema = Joi.object({

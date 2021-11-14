@@ -77,7 +77,12 @@ router.get("/:id", protect, async (req, res) => {
 router.patch("/:id", protect, validation(schema.modelSchema), async (req, res) => {
     try {
         const modelId = req.params.id * 1;
-        await model.updateModel(req.body.name, modelId);
+        if(req.body.active) {
+            await model.updateModel(req.body.name, modelId); 
+        }else {
+            await model.updateModel(req.body.name, modelId); 
+            await model.disableModel(modelId);
+        }
         res.status(200).json({
             statusCode: 200,
             message: modelMsg.successEdit

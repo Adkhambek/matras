@@ -21,7 +21,7 @@ router.get("/", async (req, res) => {
 
 });
 
-router.get("/update", protect, async(req, res) => {
+router.get("/all", protect, async(req, res) => {
     try {
         const statistics = await model.getStatisticsForUpdate();
         res.status(200).json({
@@ -36,7 +36,7 @@ router.get("/update", protect, async(req, res) => {
     }   
 })
 
-router.patch("/update", protect, validation(schema.statisticsSchema), async (req, res) => {
+router.patch("/", protect, validation(schema.statisticsSchema), async (req, res) => {
     try {
         await model.updateStatistics(req.body);
         res.status(200).json({

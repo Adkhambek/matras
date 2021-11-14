@@ -10,8 +10,9 @@ const { protect } = require("../../middleware/protect");
 router.get("/", async (req, res) => {
     try {
         let products = await model.getProducts();
-        // parse json
-        // products = products.map(e => JSON.parse(e.images))
+        for(data of products) {
+            data.images = JSON.parse(data.images)[0];
+        }
         res.status(200).json({
             statusCode: 200,
             results: products.length, 
@@ -67,6 +68,7 @@ router.get("/images/:id", async (req, res) => {
     try {
         const productId = req.params.id * 1
         const productImages = await model.getProductImages(productId);
+        productImages.images = JSON.parse(productImages.images)
         return res.status(200).json({
             statusCode: 200,
             data: productImages
