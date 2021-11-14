@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Raleway:wght@400;600;700&display=swap');
+
+.technologies{
+    margin-top: 138px;
+}
+.technologies .container .carus{
+    display: none;
+}
+.container h1{
+    font-size: 50px;
+    font-weight: 700;
+    color: #01384D;
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    margin-bottom: 87px;
+}
+.col-4 a{
+    color: #01384D;
+}
+.col-4 a:hover{
+    color: #01384D;
+}
+.col-4 h6{
+    text-align: center;
+    font-size: 30px;
+    color: #01384D;
+    font-weight: 600;
+    font-family: 'Raleway', sans-serif;
+    margin-bottom: 25px;
+}
+.responsive-iframe{
+    /*width :407px;*/
+    height :300px;
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid #01384D;
+}
+.col-4 p{
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    font-weight: lighter;
+    margin-top: 20px;
+    padding: 0 25px;
+
+}
+.col-4 .techno-img{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.col-4 .video-img{
+    position: absolute;
+}
+@media (max-width: 992px) {
+    .technologies .container .row{
+        display: none;
+    }
+    .technologies .container .carus{
+        display: block;
+    }
+}
+@media (max-width: 768px) {
+    .technologies{
+        margin-top: 90px;
+    }
+    .technologies .container h1{
+        font-size: 28px!important;
+        margin-bottom: 50px!important;
+    }
+}

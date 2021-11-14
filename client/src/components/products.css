@@ -1,0 +1,291 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Raleway:wght@400;600;700&display=swap');
+.products{
+    padding-top: 100px;
+    /*display: none;*/
+}
+.title{
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    font-size: 50px;
+    color: #01384D;
+}
+.products .buttons{
+    border-bottom: 1px solid #01384D;
+    margin-top: 77px;
+    padding-bottom: 4px;
+    margin-bottom: 54px;
+}
+.buttons button{
+    background-color: #ffffff;
+    border: none;
+    font-weight: 400;
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    padding: 13px 31px;
+    color: #a9bcc2;
+}
+.buttons button:hover{
+    background-color: #e6ebed;
+    border-radius: 5px;
+}
+.col-12{
+    display: flex;
+    background-color: #F6FBFF;
+    border: 1px solid #c7dff5;
+    padding: 30px 40px;
+    border-radius: 3px;
+}
+.col-12 .left img{
+    width:464px;
+    height:213px;
+    margin-top: 76px;
+}
+.col-12 .left{
+    padding-left: 40px;
+}
+.left button{
+    background-color: #FF6B6B;
+    font-size: 14px;
+    color: #ffffff;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    padding: 10px 30px;
+    border: 1px solid #FF6B6B;
+    border-radius: 5px;
+}
+.left .action-button{
+    background-color: #D9E1E7;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.left .askiya{
+    background-color: #1FCA25;
+    font-size: 14px;
+    color: #ffffff;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    padding: 10px 30px;
+    border: 1px solid #FF6B6B;
+    border-radius: 5px;
+    margin-left: 30px;
+    cursor: pointer;
+}
+.col-12 .right{
+    margin-left: 100px;
+    padding-right: 40px;
+}
+.right .main-title{
+    color: #01384D;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+}
+.right .info h6{
+    color: #a9bcc2;
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+.right .info span{
+    font-family: 'Raleway', sans-serif;
+    color: #01384D;
+    font-weight: 700;
+    font-size: 30px;
+}
+.right .info .sub-span{
+    font-size: 16px;
+    margin-left: 5px;
+}
+.right  p{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    opacity: 60%;
+    margin-top: 20px;
+}
+.right .price h6{
+    font-size: 16px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    color: #a9bcc2;
+}
+.right .price span{
+    font-size: 30px;
+    font-weight: 700;
+    font-family: 'Raleway', sans-serif;
+    color: #01384D;
+}
+.right .price .sub-span{
+    font-size: 16px;
+    margin-left: 5px;
+}
+.right button{
+    background-color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Raleway', sans-serif;
+    color: #01384D;
+    padding: 13px 20px;
+    border: 1px solid #01384D;
+    border-radius: 5px;
+    margin-top: 38px;
+}
+.right button img{
+    margin-left: 10px;
+    width: 20px;
+    height: 20px;
+}
+.right .price .pricee{
+    color: #FF5D5D;
+    font-size: 18px;
+    position: relative;
+}
+.right .price .line{
+    position: absolute;
+    left: 0;
+    height: 2px;
+    background-color: #FF5D5D;
+    width: 100%;
+    right: 0;
+    top:50%;
+}
+.right .infos{
+    display: flex;
+    justify-content: space-between;
+    /*align-items: center;*/
+
+}
+.right  .first-infos{
+    flex: 0 0 39%;
+    max-width: 39%;
+}
+.right  .second-infos{
+    flex: 0 0 59%;
+    max-width: 59%;
+}
+/*.right .infos .info{*/
+/*    flex: 0 0 25%;*/
+/*    max-width: 25%;*/
+/*}*/
+.right .price .priceee{
+    color: #FF5D5D;
+    font-size: 10px;
+}
+.right .price  .new-price{
+    font-size: 30px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    color: #01384D;
+    margin-left: 20px;
+}
+@media (max-width:1200px) {
+    .products .row .col-12{
+        display: block;
+    }
+    .col-12 .left img{
+
+    }
+    .col-12 .right{
+        margin-left: 40px;
+    }
+    .right .main-title{
+        margin-top: 10px;
+        margin-left: 0;
+    }
+    .products .buttons{
+        overflow: scroll;
+        /*overflow: hi;*/
+
+    }
+    .buttons button{
+        width: 100%;
+    }
+}
+@media (max-width:768px){
+    .products .container .row .col-12 .left{
+        padding-left: 0!important;
+    }
+    .products .container .row .col-12 .left img{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .products .title{
+        font-size: 28px;
+        margin-bottom: 24px!important;
+    }
+    .products .buttons{
+        margin-top: 30px;
+    }
+    .products .container h1{
+        font-size: 28px!important;
+        margin-bottom: 20px!important;
+    }
+    .col-12 .right{
+        margin-left: 0!important;
+        padding-right: 0!important;
+    }
+    .col-12 .right h6{
+       font-size: 22px;
+    }
+    .col-12 .right .info h6{
+        font-size: 14px;
+    }
+    .col-12 .right .info-main{
+        display: block!important;
+    }
+    .col-12 .right .infos{
+        flex: 0 0 100%;
+        max-width: 100%;
+        align-items: center;
+        justify-content: start;
+    }
+    .col-12 .right .infos .info{
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    .col-12 .right .price h6{
+        font-size: 16px;
+        margin-bottom: 0!important;
+    }
+}
+@media (max-width: 400px) {
+    .col-12 .right .infos .info{
+        margin-bottom: 10px;
+    }
+    .col-12 .right .infos .info span{
+        font-size: 15px;
+    }
+    .col-12 .right .infos .info .sub-span{
+        font-size: 12px;
+    }
+    .col-12 .right p{
+        font-size: 14px;
+    }
+    .col-12 .right .price .sub-span{
+        font-size: 12px;
+    }
+    .products .buttons{
+        width: 100%;
+    }
+    .products .buttons button{
+        padding: 10px 21px;
+        font-size: 14px;
+    }
+    .products .row .col-12 .left .zoom{
+        display:block!important;
+    }
+    .products .row .col-12 .left .zoom .action-button{
+        margin-top: 10px;
+    }
+    .products .row .col-12 .left .zoom .action-button img{
+        margin-bottom: 0!important;
+    }
+}

@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Raleway:wght@400;600;700&display=swap');
+/*font-family: 'Open Sans', sans-serif;*/
+/*font-family: 'Raleway', sans-serif;*/
+/*body{*/
+/*    overflow-x: hidden;*/
+/*    width: 100%;*/
+/*}*/
+body .react-responsive-modal-root h1{
+    font-size: 40px;
+    color: #01384D;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    margin-top: 5px;
+    text-align: center;
+    margin-bottom: 38px;
+}
+body .react-responsive-modal-root .modal-body{
+    background-color: #C7DFF5;
+}
+.react-responsive-modal-modal{
+    background-color: #C7DFF5;
+}
+body .react-responsive-modal-root input{
+    border: 2px solid #01384D;
+    padding: 13px;
+}
+body .react-responsive-modal-root input::placeholder{
+    color: #01384D;
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    opacity: 70%;
+}
+body .react-responsive-modal-root p{
+    color: #01384D;
+    font-weight: 400;
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    margin-top: 40px;
+}
+body .react-responsive-modal-root .phone div{
+    background-color: #01384D;
+    padding: 15px 24px;
+    color: #ffffff;
+    font-weight: 600;
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+body .react-responsive-modal-root label{
+    color: #01384D;
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+body .react-responsive-modal-root select{
+    border: 2px solid #01384D;
+    padding: 13px;
+}
+body .react-responsive-modal-root .number-group button{
+    border: 2px solid #01384D;
+    padding: 16px 39px;
+    background-color: #ffffff!important;
+}
+body .react-responsive-modal-root .number-group input{
+    border-radius: 0;
+    text-align: center;
+
+}
+body .react-responsive-modal-root .number-group .first{
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    border-right:none;
+}
+body .react-responsive-modal-root .text-center img{
+    width: 100% !important;
+}
+body .react-responsive-modal-root .text-center h1{
+    font-size: 28px;
+}
+body .react-responsive-modal-root .number-group .second{
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    border-left: none;
+}
+body .react-responsive-modal-root .number-group{
+    margin-bottom: 50px;
+}
+body .react-responsive-modal-root .w-100{
+    background-color: #01384D;
+    color: #ffffff;
+    font-weight: 600;
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+    padding-top: 19px;
+    padding-bottom: 19px;
+    border-radius: 13px;
+}
+body .react-responsive-modal-root .modal-body form select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+    background-repeat: no-repeat;
+    background-position-x: 100%;
+    background-position-y:15px;
+    background-color: #ffffff;
+}
+body .react-responsive-modal-root .modal-body form select img{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.login-page{
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.login-page .login{
+    border: 2px solid #b3c3ca;
+    padding: 30px;
+    border-radius: 8px;
+}
+.login h1{
+    text-align: center;
+    color: #01384D;
+    font-size: 20px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+.login .user, .lock{
+    border: 2px solid #d0dadd;
+    padding: 15px 20px;
+    border-radius: 7px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    color: #01384D;
+    margin-bottom: 13px;
+}
+.login .user input:hover::placeholder{
+    color: #01384D;
+}
+.login .lock input:hover::placeholder{
+    color: #01384D;
+}
+.login .user:hover{
+    border: 2px solid #01384D;
+}
+.login .lock:hover{
+    border: 2px solid #01384D;
+}
+.user input{
+    border: none;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.user input:focus{
+    outline: none;
+}
+.lock input{
+    border: none;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.lock input:focus{
+    outline: none;
+}
+.login button{
+    background-color: #809ba6;
+    color: #ffffff;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    width: 100%;
+    padding: 17px 0;
+    border: none;
+    border-radius: 7px;
+    margin-top: 35px;
+}
+.login button:hover{
+    background-color: #01384D;
+    color: #ffffff;
+}
+
+@media (max-width: 400px) {
+    body .react-responsive-modal-root .images-modal{
+        /*display: block!important;*/
+    }
+    body .react-responsive-modal-root .images-modal img{
+        margin-top: 10px;
+        width: 64px!important;
+        height: 64px!important;
+    }
+}
+

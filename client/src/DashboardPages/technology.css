@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap');
+.technology .col-3{
+    background-color: #01384D;
+    height: 100vh;
+}
+.add-techno input{
+    border: 2px solid rgba(0, 0, 0, 0.2)!important;
+    width: 90%;
+}
+.add-techno h6{
+    padding-left: 0!important;
+}
+.add-techno .add-button-techno{
+    background-color: #01384D;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 5px;
+    padding: 14px;
+    width: 90%;
+    margin-top: 30px;
+}

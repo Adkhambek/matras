@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Raleway:wght@400;600;700&display=swap');
+.location .react-multi-carousel-list .react-multiple-carousel__arrow {
+    /*display: none;*/
+}
+.location .react-multiple-carousel__arrow--left{
+    left: calc(4% + 1px);
+    background-color: transparent;
+}
+.location .react-multiple-carousel__arrow--right{
+    background-color: transparent;
+    right: calc(4% + 1px);
+}
+.location .react-multiple-carousel__arrow--right::before{
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: bold;
+}
+.location .react-multiple-carousel__arrow--left::before{
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: bold;
+}
+.location .react-multi-carousel-dot-list{
+    justify-content: start;
+}
+.location .col-4 img{
+    width: 100%;
+    height: 321px;
+}
+.location .col-6 .col-5-h5{
+    font-size: 50px;
+    font-weight: 700;
+    font-family: 'Raleway', sans-serif;
+    color: #01384D;
+
+}
+.location{
+    margin-top: 130px;
+}
+.location h6{
+    margin-top: 50px;
+    font-weight: 600;
+    color: #01384D;
+    font-family: 'Raleway', sans-serif;
+    font-size: 30px;
+}
+.location p{
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 'Raleway', sans-serif;
+    color: #01384D;
+    margin-top: 15px;
+}
+.location .location-button{
+    padding: 22px 104px;
+    background-color: #ffffff;
+    font-family: 'Raleway', sans-serif;
+    border-radius: 10px;
+    border: 2px solid #01384D;
+    font-weight: 600;
+    color: #01384D;
+}
+.location-button img{
+    margin-right: 10px;
+}
+.location .react-multi-carousel-dot-list .react-multi-carousel-dot{
+    /*width: 100%;*/
+}
+.location .react-multi-carousel-dot-list .react-multi-carousel-dot button{
+    /*width: 104px;*/
+    height: 8px;
+    border-radius: 0;
+    margin-right: 0;
+    border-color: #ffffff;
+    transition: all 0s linear;
+    margin-top: 10px;
+}
+.location .react-multi-carousel-dot-list .react-multi-carousel-dot--active button{
+    border-color:#01384D;
+}
+.location .react-multi-carousel-list{
+    margin-top: 52px;
+    padding-bottom: 10px;
+}
+@media (max-width: 992px) {
+    .location .container .row .col-6{
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .location .container .row .col-4{
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+@media (max-width:768px) {
+    .location{
+        margin-top: 80px;
+    }
+    .location .row .col-6 h5{
+        font-size: 28px;
+    }
+    .location .row .col-6 h6{
+        font-size: 18px;
+        margin-top: 10px;
+    }
+    .location .row .col-6 p{
+        font-size: 14px;
+        font-weight: 500;
+    }
+    .location .row .col-6 a button{
+        padding: 10px 100px;
+        font-size: 14px;
+    }
+    .location .row .col-6 a button img{
+        width: 15px;
+        height: 15px;
+    }
+}
+

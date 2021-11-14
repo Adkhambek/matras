@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap');
+.locationn .col-3{
+    background-color: #01384D;
+    height: 100vh;
+}
+.add-location{
+    transition: all 0.3s ease-in-out;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 30px;
+    bottom: 30px;
+    z-index: 999;
+    max-width: 60%;
+    margin: 0 auto;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    padding: 25px;
+}
+.add-location .row{
+    margin-top: 25px;
+}
+.add-location p{
+    text-align: left;
+    padding-left: 0;
+    margin-left: 0;
+  }
+.add-location input{
+    width: 100%;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 10px;
+}
+.add-location textarea{
+    width: 100%;
+    height: 155px;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+.add-location textarea:focus{
+    outline: none;
+}
+.add-location input:focus{
+    outline: none;
+}
+.add-location .add-location-button{
+    display: block;
+    padding: 14px;
+    width: 100%;
+    background-color: #01384D;
+    color: #ffffff;
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 30px;
+}

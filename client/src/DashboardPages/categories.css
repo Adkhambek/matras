@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap');
+.categories .col-3{
+    background-color: #01384D;
+    height: 100vh;
+}
+
+.categories .table thead tr{
+    background-color: #01384D;
+}
+.categories .table tbody tr td{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.categories .table tbody tr td h6{
+    margin-bottom: 0;
+}
+.categories .table tbody tr td button{
+    margin-left: 16px;
+}
+.react-responsive-modal-root .delete-modal{
+    margin-top: 30px;
+}
+.react-responsive-modal-root .delete-modal .yes{
+    background-color: #c7dff5;
+    border: none;
+    color: #000000;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 9px 29px;
+}
+.react-responsive-modal-root .delete-modal .no{
+    background-color: #fbe9e9;
+    border: none;
+    color: #D61F1F;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 9px 29px;
+    border-radius: 7px;
+}
+.react-responsive-modal-root .add-modal h6{
+    font-size: 18px;
+    color: #01384D;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 25px;
+}
+.react-responsive-modal-root .add-modal p{
+    font-size: 14px;
+    color:#01384D;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    margin-top: 30px;
+    margin-bottom: 0;
+}
+.react-responsive-modal-root .add-modal input{
+    border:3px solid rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    margin-top: 10px;
+}
+.react-responsive-modal-root .add-modal input:focus{
+    outline: none;
+}
+.react-responsive-modal-root .add-modal .switch{
+    width: 45px;
+    height: 24px;
+
+    border-radius: 40px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s linear;
+}
+
+.react-responsive-modal-root .add-modal .switch .switch-button{
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    position: absolute;
+    top: 3px;
+    transition: all 0.2s linear;
+
+}
+.react-responsive-modal-root .add-modal .add{
+    width: 100%;
+    background-color: #01384D;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    padding: 11px 34px;
+    border-radius: 8px;
+    margin-top: 40px;
+}

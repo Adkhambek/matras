@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap');
+.orders .col-3{
+    background-color: #01384D;
+    height: 100vh;
+    padding-right: 0;
+}
+.orders .col-9{
+    padding-left: 0;
+    padding-right: 0;
+}
+.orders .col-9 .search{
+    background-color: #01384D;
+    padding: 15px;
+    padding-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   padding-right: 30px;
+}
+.orders .search .input-div{
+    padding: 10px;
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 7px;
+}
+.orders .search .input-div img{
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+}
+.orders .search input:focus{
+    outline: none;
+}
+.orders .search input{
+    border: none;
+}
+.orders .col-9 .add{
+    float: right;
+    margin-right: 30px;
+    background-color: #01384D;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    padding: 11px 34px;
+    border-radius: 8px;
+}
+.orders .col-9 .search .input-div{
+    background-color: #ffffff;
+}
+.orders .col-9 .userr-div h6{
+    margin-bottom: 0;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    margin-left: 10px;
+}
+.orders .col-9 .userr-div{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.orders .userr{
+    background-color: #ffffff;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.orders .table{
+    max-width: 95%;
+    margin: 45px auto;
+    /*border-color: #01384D;*/
+    border: 1px solid #01384D;
+}
+.orders .table thead{
+    background-color: #01384D;
+}
+
+.orders .table th{
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    padding-left: 30px;
+}
+.orders .table td{
+    color: #01384D;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    padding-left: 30px;
+}
+.orders .table td .switch{
+    width: 45px;
+    height: 24px;
+    /*background-color: #d0efd1;*/
+    border-radius: 40px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s linear;
+}
+.orders .table td .switch .switch-button{
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    position: absolute;
+    top: 3px;
+    transition: all 0.2s linear;
+
+}
+.orders .table td span{
+    color: #afafaf;
+}
+.orders .table .delete{
+    background-color: #fbe9e9;
+    width: 34px;
+    height: 34px;
+    border: none;
+    border-radius: 5px;
+}

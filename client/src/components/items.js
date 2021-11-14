@@ -1,0 +1,110 @@
+import matras from '../matras.png'
+
+export default [
+    {
+        id:1,
+        title:"Ortopedik Eko matras",
+        category:"Model A+",
+        loading:"150",
+        warranty:"3",
+        size:"200x120x40",
+        capacity:"2",
+        description:"Penatibus viverra gravida rhoncus in. At turpis morbi ante tortor a est. Habitant adipiscing ut sed pulvinar tellus, ut urna, fermentum. Porttitor senectus lorem rhoncus facilisi ac dictum varius egestas.",
+        price:"1 699 999",
+        img:matras,
+        neww:"Yangi mahsulot"
+    },
+    {
+        id:2,
+        title:"Ortopedik Eko matras",
+        category:"Model B+",
+        loading:"150",
+        warranty:"3",
+        size:"200x120x40",
+        capacity:"2",
+        description:"Penatibus viverra gravida rhoncus in. At turpis morbi ante tortor a est. Habitant adipiscing ut sed pulvinar tellus, ut urna, fermentum. Porttitor senectus lorem rhoncus facilisi ac dictum varius egestas.",
+        price:"1 699 999",
+        img:matras,
+        neww:"Yangi mahsulot"
+    },
+    {
+        id:3,
+        title:"Ortopedik Eko matras",
+        category:"Model C",
+        loading:"150",
+        warranty:"3",
+        size:"200x120x40",
+        capacity:"2",
+        description:"Penatibus viverra gravida rhoncus in. At turpis morbi ante tortor a est. Habitant adipiscing ut sed pulvinar tellus, ut urna, fermentum. Porttitor senectus lorem rhoncus facilisi ac dictum varius egestas.",
+        price:"1 699 999",
+        img:matras,
+        neww:"Yangi mahsulot"
+    },
+    {
+        id:4,
+        title:"Ortopedik Eko matras",
+        category:"Model C+",
+        loading:"150",
+        warranty:"3",
+        size:"200x120x40",
+        capacity:"2",
+        description:"Penatibus viverra gravida rhoncus in. At turpis morbi ante tortor a est. Habitant adipiscing ut sed pulvinar tellus, ut urna, fermentum. Porttitor senectus lorem rhoncus facilisi ac dictum varius egestas.",
+        price:"1 699 999",
+        img:matras,
+        neww:"Yangi mahsulot"
+    },
+    {
+        id:5,
+        title:"Ortopedik Eko matras",
+        category:"Model D",
+        loading:"150",
+        warranty:"3",
+        size:"200x120x40",
+        capacity:"2",
+        description:"Penatibus viverra gravida rhoncus in. At turpis morbi ante tortor a est. Habitant adipiscing ut sed pulvinar tellus, ut urna, fermentum. Porttitor senectus lorem rhoncus facilisi ac dictum varius egestas.",
+        price:"1 699 999",
+        img:matras,
+        neww:"Yangi mahsulot"
+    },
+    {
+        id:6,
+        title:"Ortopedik Eko matras",
+        category:"Model Yevro",
+        loading:"150",
+        warranty:"3",
+        size:"200x120x40",
+        capacity:"2",
+        description:"Penatibus viverra gravida rhoncus in. At turpis morbi ante tortor a est. Habitant adipiscing ut sed pulvinar tellus, ut urna, fermentum. Porttitor senectus lorem rhoncus facilisi ac dictum varius egestas.",
+        price:"1 699 999",
+        img:matras,
+        neww:"Yangi mahsulot"
+    },
+    {
+        id:7,
+        title:"Ortopedik Eko matras",
+        category:"Yangi tovarlar",
+        loading:"150",
+        warranty:"3",
+        size:"200x120x40",
+        capacity:"2",
+        description:"Penatibus viverra gravida rhoncus in. At turpis morbi ante tortor a est. Habitant adipiscing ut sed pulvinar tellus, ut urna, fermentum. Porttitor senectus lorem rhoncus facilisi ac dictum varius egestas.",
+        price:"1 699 999",
+        img:matras,
+        neww:"Yangi mahsulot"
+    },
+    {
+        id:8,
+        title:"Ortopedik Eko matras",
+        category:"Model A",
+        loading:"150",
+        warranty:"3",
+        size:"200x120x40",
+        capacity:"2",
+        description:"Penatibus viverra gravida rhoncus in. At turpis morbi ante tortor a est. Habitant adipiscing ut sed pulvinar tellus, ut urna, fermentum. Porttitor senectus lorem rhoncus facilisi ac dictum varius egestas.",
+        price:"1 699 999",
+        newPrice:"1 299 999",
+        img:matras,
+        neww:"Yangi mahsulot",
+        action:"AKSIYA"
+    }
+]

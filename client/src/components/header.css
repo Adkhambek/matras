@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Raleway:wght@400;600;700&display=swap');
+
+.header{
+    background-color: #EABF9F;
+    /*display: none;*/
+}
+.justify-content-end{
+    padding-top: 19px;
+}
+.container .none-menu{
+    display: none;
+}
+.container .none-menu-child{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 26px;
+}
+.none-links ul{
+    padding-left: 0;
+}
+.none-links ul li{
+    list-style: none;
+    margin-top: 30px;
+}
+.none-links ul li a{
+    font-family: 'Raleway', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #01384D;
+}
+.none-links button{
+    border: 2px solid #01384D;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 13px 28px;
+    color: #01384D;
+    font-size: 16px;
+    font-weight:600;
+    /*margin-left:0px;*/
+}
+.none-links .nuumber{
+    /*background-color: #ffffff;*/
+    padding: 29px 0;
+    margin-top: 22px;
+}
+.none-links .nuumber .phone-div h6{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    color: #01384D;
+    font-size: 18px;
+    margin-left: 7px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.container .menu ul{
+    padding-left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+.container .menu ul li{
+    list-style: none;
+}
+.menu ul li a{
+    margin-left: 50px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    text-decoration: none;
+    color: #01384D;
+}
+.menu .brand{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+.menu .brand img{
+    width: 160px;
+    height: 37.25px;
+}
+.child-menu h6{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    color: #01384D;
+    font-size: 18px;
+    margin-left: 7px;
+}
+.child-menu .phone-div{
+    cursor: pointer;
+}
+.child-menu button{
+    border: 1px solid #01384D;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 13px 28px;
+    color: #01384D;
+    font-size: 16px;
+    font-weight:600;
+    margin-left:38px;
+}
+.react-multi-carousel-list{
+    margin-top: 52px;
+    padding-bottom: 61px;
+}
+.react-multi-carousel-list ul li h2{
+    font-family: 'Raleway', sans-serif;
+    font-size: 70px;
+    font-weight: 700;
+    line-height: 80px;
+    min-height: 160px;
+    color: #01384D;
+    /*max-width: 510px;*/
+}
+.react-multi-carousel-list ul li .btnn{
+    border: 1px solid #01384D;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 13px 25px;
+    color: #01384D;
+    font-size: 16px;
+    font-weight:600;
+    margin-top: 73px;
+}
+.react-multi-carousel-list ul li .carusell{
+    display: flex;
+}
+.react-multi-carousel-list ul li .main-img{
+    width: 705px;
+    height: 330px;
+    margin-top: 80px;
+}
+.react-multi-carousel-list .react-multiple-carousel__arrow {
+    display: none;
+}
+.carusel .react-multiple-carousel__arrow--left{
+    left: calc(80% + 1px);
+    background-color: #EABF9F;
+    top: 10px;
+}
+.carusel .react-multiple-carousel__arrow--right{
+    top: 10px;
+    background-color: #EABF9F;
+    right: calc(12% + 1px);
+}
+.carusel .react-multiple-carousel__arrow--left:hover{
+    background-color: #EABF9F;
+    box-shadow: 0 0 10px rgba(214,111,129,0.7);
+}
+.carusel .react-multiple-carousel__arrow--right:hover{
+    background-color: #EABF9F;
+    box-shadow: 0 0 10px rgba(214,111,129,0.7);
+}
+.carusel .react-multi-carousel-dot-list{
+    justify-content: start;
+    margin-bottom: 44px;
+}
+
+ .react-multi-carousel-dot-list .react-multi-carousel-dot button{
+    width: 50px;
+    height: 3px;
+    border-radius: 0;
+    margin-right: 0;
+    border-color: #ffffff;
+    transition: all 0s linear;
+}
+.react-multi-carousel-dot-list .react-multi-carousel-dot--active button{
+    border-color:#01384D;
+}
+@media (max-width:1200px) {
+    .react-multi-carousel-list ul li .carusell{
+        display: block!important;
+    }
+}
+@media (max-width: 992px) {
+    .react-multi-carousel-list ul li .main-img{
+        margin-top: 80px;
+        width: 100%;
+        height: 100%;
+    }
+    .react-multi-carousel-list ul li h2{
+        font-size: 60px;
+        height: 110px!important;
+        min-height: 110px!important;
+    }
+    .react-multi-carousel-list ul li .btnn{
+        margin-top: 60px!important;
+    }
+    .carusel .react-multi-carousel-dot-list{
+        justify-content: center;
+        margin-bottom: 34px!important;
+    }
+}
+@media (max-width: 768px) {
+    .header .container .menu {
+        display: none;
+    }
+    .container .none-menu{
+        display: block;
+    }
+}
+@media (max-width: 500px) {
+    .header .carusel h2{
+        font-size: 28px;
+       height: 100%;
+        min-height: 50px!important;
+        line-height: 50px;
+    }
+    .react-multi-carousel-list ul li .btnn{
+        margin-top: 40px!important;
+    }
+}
+
