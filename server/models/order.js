@@ -23,7 +23,7 @@ SELECT
     o.id,
     o.name,
     o.tel,
-    p.name,
+    p.name as product,
     o.amount,
     o.is_checked
 FROM orders o
