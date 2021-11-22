@@ -66,6 +66,11 @@ SET is_deleted = '1'
 WHERE id = $1;
 `;
 
+const GET_TECHNOLOG_BY_ID = `
+SELECT * 
+FROM technologies
+WHERE id = $1
+`;
 
 exports.countTechnologies = () => fetch(COUNT_TECHNOLOGIES);
 exports.getTechnologies = () => fetchAll(GET_TECHNOLOGIES);
@@ -75,3 +80,4 @@ exports.addTechnology = (data, imageName) => fetch(ADD_TECHNOLOGY, data.name,  d
 exports.updateTechnology = (data, imageName, id) => fetch(UPDATE_TECHNOLOGY, data.name,  data.video, imageName, data.detail, id);
 exports.disableTechnology = (id) => fetch(DISABLE_TECHNOLOGY , id);
 exports.deleteTechnology = (id) => fetch(DELETE_TECHNOLOGY, id);
+exports.getTechnologyById = (id) => fetch(GET_TECHNOLOG_BY_ID, id);

@@ -65,6 +65,12 @@ const ACTIVE_ADDRESS = `
 UPDATE address
 SET is_active = '0'
 WHERE id = $1;
+`;
+
+const GET_ADDRESS_BY_ID = `
+SELECT *
+FROM address
+WHERE id = $1;
 `
 
 
@@ -76,3 +82,4 @@ exports.updateAddress = (data, imageName, id) => fetch(UPDATE_ADDRESS, data.addr
 exports.disableAddress = (id) => fetch(DISABLE_ADDRESS , id);
 exports.activeAddress = (id) => fetch(ACTIVE_ADDRESS , id);
 exports.deleteAddress = (id) => fetch(DELETE_ADDRESS, id);
+exports.getAddressById = (id) =>fetch(GET_ADDRESS_BY_ID, id);

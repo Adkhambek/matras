@@ -5,6 +5,7 @@ const schema = require("../../lib/validationSchema");
 const { validation } = require("../../middleware/validation");
 const { addressMsg } = require("../../config/message");
 const {deleteFile, imagePath} = require("../../lib/helper");
+const { protect } = require("../../middleware/protect");
 
 router.get("/", async (req, res) => {
     try {
@@ -22,7 +23,7 @@ router.get("/", async (req, res) => {
 
 });
 
-router.get("/all", async (req, res) => {
+router.get("/all", protect, async (req, res) => {
     try {
         const addresses = await model.getAllAddresses();
         res.status(200).json({
@@ -39,7 +40,24 @@ router.get("/all", async (req, res) => {
 
 });
 
-router.post("/", addressUpload, validation(schema.addressSchema), async (req, res) => {
+router.get("/:id", async (req, res) => {
+    try {
+        const addressId = req.params.id * 1;
+        const address = await model.getAddressById(addressId);
+        res.status(200).json({
+            statusCode: 200,
+            data: address 
+        });
+    } catch (error) {
+        res.status(400).json({
+            statusCode: 400,
+            error: addressMsg.requestErr
+        });
+    }
+
+});
+
+router.post("/", protect, addressUpload, validation(schema.addressSchema), async (req, res) => {
     try {
         let imageNames = req.files.map(e => e = e.filename);
         imageNames = JSON.stringify(imageNames);
@@ -61,7 +79,7 @@ router.post("/", addressUpload, validation(schema.addressSchema), async (req, re
     }
 });
 
-router.patch("/:id", addressUpload, validation(schema.addressSchema), async (req, res) => {
+router.patch("/:id", protect, addressUpload, validation(schema.addressSchema), async (req, res) => {
     try {
         const addressId = req.params.id * 1;
         let addressImages = await model.getAddressImages(addressId);
@@ -90,7 +108,7 @@ router.patch("/:id", addressUpload, validation(schema.addressSchema), async (req
     }
 });
 
-router.patch("/active/:id", async (req, res) => {
+router.patch("/active/:id", protect, async (req, res) => {
     try {
         const addressId = req.params.id * 1;
         if(req.body.active) {
@@ -115,7 +133,7 @@ router.patch("/active/:id", async (req, res) => {
     }
 });
 
-router.patch("/delete/:id", async (req, res) => {
+router.patch("/delete/:id", protect, async (req, res) => {
     try {
         const addressId = req.params.id * 1;
         await model.deleteAddress(addressId);

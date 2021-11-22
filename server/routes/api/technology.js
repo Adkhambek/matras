@@ -38,6 +38,22 @@ router.get("/all", protect, async (req, res) => {
             error: technologyMsg.requestErr
         });
     }    
+});
+
+router.get("/:id", protect, async (req, res) => {
+    try {
+        const techId = req.params.id * 1;
+        const technology = await model.getTechnologyById(techId);
+        res.status(200).json({
+            statusCode: 200,
+            data: technology
+        });
+    } catch (error) {
+        res.status(400).json({
+            statusCode: 400,
+            error: technologyMsg.requestErr
+        });
+    }    
 })
 
 router.post("/", protect, technologyUpload, validation(schema.technologySchema), async (req, res) => {
