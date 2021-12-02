@@ -15,7 +15,7 @@ const TOTAL_INTERESTS = `
 SELECT count(*) as total
 FROM interest
 WHERE is_deleted = '0';
-`
+`;
 
 const PAGINATION = `
 SELECT 
@@ -25,7 +25,7 @@ SELECT
     to_char(date, 'HH24:MI-DD.MM.YYYY') as date
 FROM interest
 WHERE is_deleted = '0'
-ORDER BY is_checked
+ORDER BY is_checked, id desc
 OFFSET $1 LIMIT $2;
 `;
 
@@ -45,7 +45,7 @@ const ADD_INTEREST = `
 INSERT into interest(tel)
 VALUES ($1);
 `;
- 
+
 const CHECK_INTEREST = `
 UPDATE interest 
 SET is_checked = '1'

@@ -40,7 +40,7 @@ router.get("/all", protect, async (req, res) => {
 
 });
 
-router.get("/:id", async (req, res) => {
+router.get("/:id", protect, async (req, res) => {
     try {
         const addressId = req.params.id * 1;
         const address = await model.getAddressById(addressId);
