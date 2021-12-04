@@ -10,7 +10,7 @@ SELECT
     o.is_checked
 FROM orders o
 JOIN products p ON p.id = o.product_id
-ORDER BY is_checked;
+ORDER BY is_checked, o.id desc;
 `;
 
 const TOTAL_ORDERS = `
@@ -43,7 +43,7 @@ o.id,
 FROM orders o
 JOIN products p ON p.id = o.product_id
 WHERE o.name ILIKE '%'||$1||'%'
-ORDER BY is_checked;
+ORDER BY is_checked, o.id desc;
 `;
 
 const ADD_ORDER = `

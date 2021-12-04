@@ -6,7 +6,8 @@ SELECT
     name
 FROM models
 WHERE is_active = '0'
-AND is_deleted = '0';
+AND is_deleted = '0'
+ORDER BY id;
 `;
 
 const GET_ALL_MODELS = `
@@ -15,7 +16,8 @@ SELECT
     name,
     is_active
 FROM models
-WHERE is_deleted = '0';
+WHERE is_deleted = '0'
+ORDER BY id;
 `;
 
 const GET_MODEL = `
@@ -34,7 +36,7 @@ UPDATE models
 SET name = $1
 WHERE id = $2;
 `;
- 
+
 const DISABLE_MODEL = `
 UPDATE models 
 SET is_active = '1'

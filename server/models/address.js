@@ -10,7 +10,8 @@ SELECT
     is_active
 FROM address
 WHERE is_active = '0'
-AND is_deleted = '0';
+AND is_deleted = '0'
+ORDER BY id;
 `;
 
 const GET_ALL_ADDRESSES = ` 
@@ -20,7 +21,8 @@ SELECT
     target,
     location
 FROM address
-WHERE is_deleted = '0';
+WHERE is_deleted = '0'
+ORDER BY id;
 `;
 
 const GET_ADDRESS_IMAGES = `
@@ -71,15 +73,23 @@ const GET_ADDRESS_BY_ID = `
 SELECT *
 FROM address
 WHERE id = $1;
-`
-
+`;
 
 exports.getAddress = () => fetchAll(GET_ADDRESS);
 exports.getAllAddresses = () => fetchAll(GET_ALL_ADDRESSES);
-exports.getAddressImages = (id) => fetch(GET_ADDRESS_IMAGES, id)
-exports.addAddress = (data, imageName) => fetch(ADD_ADDRESS, data.address,  data.target, data.location, imageName);
-exports.updateAddress = (data, imageName, id) => fetch(UPDATE_ADDRESS, data.address,  data.target, data.location, imageName, id);
-exports.disableAddress = (id) => fetch(DISABLE_ADDRESS , id);
-exports.activeAddress = (id) => fetch(ACTIVE_ADDRESS , id);
+exports.getAddressImages = (id) => fetch(GET_ADDRESS_IMAGES, id);
+exports.addAddress = (data, imageName) =>
+    fetch(ADD_ADDRESS, data.address, data.target, data.location, imageName);
+exports.updateAddress = (data, imageName, id) =>
+    fetch(
+        UPDATE_ADDRESS,
+        data.address,
+        data.target,
+        data.location,
+        imageName,
+        id
+    );
+exports.disableAddress = (id) => fetch(DISABLE_ADDRESS, id);
+exports.activeAddress = (id) => fetch(ACTIVE_ADDRESS, id);
 exports.deleteAddress = (id) => fetch(DELETE_ADDRESS, id);
-exports.getAddressById = (id) =>fetch(GET_ADDRESS_BY_ID, id);
+exports.getAddressById = (id) => fetch(GET_ADDRESS_BY_ID, id);

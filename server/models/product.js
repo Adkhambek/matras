@@ -15,7 +15,8 @@ SELECT
     status
 FROM products
 WHERE is_active = '0'
-AND is_deleted = '0';
+AND is_deleted = '0'
+ORDER BY id desc;
 `;
 
 const GET_DISCOUNT_PRODUCTS = `
@@ -29,12 +30,15 @@ SELECT
     weight,
     guarantee,
     size,
-    capacity
+    capacity,
+    status
 FROM products
 WHERE is_active = '0'
 AND is_deleted = '0'
-AND status = '2';
-`
+AND (status = '2'
+OR status = '3')
+ORDER BY id desc;
+`;
 
 const GET_ALL_PRODUCTS = `
 SELECT
@@ -49,7 +53,8 @@ SELECT
     p.status
 FROM products p
 JOIN models m on p.model_id = m.id
-WHERE p.is_deleted = '0';
+WHERE p.is_deleted = '0'
+ORDER BY p.id desc;
 `;
 
 const GET_PRODUCTS_BY_CATEGORY = `
@@ -69,15 +74,15 @@ FROM products p
 JOIN models m on p.model_id = m.id
 WHERE p.is_deleted = '0' 
 AND p.is_active = '0'
-AND m.id = $1;
+AND m.id = $1
+ORDER BY p.id desc;
 `;
 
 const GET_PRODUCT = `
 SELECT *
 FROM products
 WHERE id = $1;
-`
-
+`;
 
 const INSERT_PRODUCT = `
 INSERT INTO products(
@@ -93,7 +98,7 @@ INSERT INTO products(
 )
 VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
 RETURNING id;
-`
+`;
 
 const DISABLE_PRODUCT = `
 UPDATE products 
@@ -105,7 +110,7 @@ const ACTIVE_PRODUCT = `
 UPDATE products 
 SET is_active = '0'
 WHERE id = $1;
-`
+`;
 
 const DELETE_PRODUCT = `
 UPDATE products 
@@ -117,13 +122,13 @@ const STATUS_PRODUCT = `
 UPDATE products 
 SET status = $1
 WHERE id = $2;
-`
+`;
 
 const DISCOUNT_PRODUCT = `
 UPDATE products 
 SET discount_price = $1
 WHERE id = $2;
-`
+`;
 
 const UPDATE_PRODUCT = `
 UPDATE products 
@@ -150,26 +155,53 @@ const GET_PRODUCT_NAME = `
 SELECT id, name
 FROM products
 WHERE id = $1;
-`
+`;
 const GET_PRODUCTS_NAME = `
 SELECT id, name
 FROM products
 WHERE is_active = '0'
-AND is_deleted = '0';
-`
+AND is_deleted = '0'
+ORDER BY id desc;
+`;
 
 exports.getProducts = () => fetchAll(GET_ACTIVE_PRODUCTS);
 exports.getAllProducts = () => fetchAll(GET_ALL_PRODUCTS);
 exports.getProduct = (id) => fetch(GET_PRODUCT, id);
 exports.getProductsByCategory = (id) => fetchAll(GET_PRODUCTS_BY_CATEGORY, id);
 exports.getDiscountProducts = () => fetchAll(GET_DISCOUNT_PRODUCTS);
-exports.addProduct = (data, imageArray) => fetch(INSERT_PRODUCT, data.modelId, data.name, data.currentPrice, data.weight, data.size, data.guarantee, data.capacity, data.detail, imageArray);
-exports.updateProduct = (data, imageArray, id) => fetch(UPDATE_PRODUCT, data.modelId, data.name, data.currentPrice, data.weight, data.size, data.guarantee, data.capacity, data.detail, imageArray, id);
+exports.addProduct = (data, imageArray) =>
+    fetch(
+        INSERT_PRODUCT,
+        data.modelId,
+        data.name,
+        data.currentPrice,
+        data.weight,
+        data.size,
+        data.guarantee,
+        data.capacity,
+        data.detail,
+        imageArray
+    );
+exports.updateProduct = (data, imageArray, id) =>
+    fetch(
+        UPDATE_PRODUCT,
+        data.modelId,
+        data.name,
+        data.currentPrice,
+        data.weight,
+        data.size,
+        data.guarantee,
+        data.capacity,
+        data.detail,
+        imageArray,
+        id
+    );
 exports.disableProduct = (id) => fetch(DISABLE_PRODUCT, id);
 exports.activeProduct = (id) => fetch(ACTIVE_PRODUCT, id);
 exports.deleteProduct = (id) => fetch(DELETE_PRODUCT, id);
 exports.statusProduct = (status, id) => fetch(STATUS_PRODUCT, status, id);
-exports.discountProduct = (discount, id) => fetch(DISCOUNT_PRODUCT, discount, id);
+exports.discountProduct = (discount, id) =>
+    fetch(DISCOUNT_PRODUCT, discount, id);
 exports.getProductImages = (id) => fetch(GET_IMAGE, id);
 exports.getProductName = (id) => fetch(GET_PRODUCT_NAME, id);
 exports.getProductsName = () => fetchAll(GET_PRODUCTS_NAME);

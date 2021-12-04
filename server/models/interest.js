@@ -8,7 +8,7 @@ SELECT
     to_char(date, 'HH24:MI-DD.MM.YYYY') as date
 FROM interest
 WHERE is_deleted = '0'
-ORDER BY is_checked;
+ORDER BY is_checked, id desc;
 `;
 
 const TOTAL_INTERESTS = `
@@ -38,7 +38,7 @@ SELECT
 FROM interest
 WHERE is_deleted = '0'
 AND tel ILIKE '%'||$1||'%'
-ORDER BY is_checked;
+ORDER BY is_checked, id desc;
 `;
 
 const ADD_INTEREST = `
