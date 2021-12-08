@@ -7,13 +7,13 @@ const Col3 = () => {
             <ul>
                 <li><a href="/"><img src="/assets/admin-logo.png" alt=""/></a></li>
                 <li>
-                    <NavLink to="/dashboard/orders" activeClassName="active">
+                    <NavLink to="/dashboard/orders/1" activeClassName="active">
                         <img src="/assets/home.png" alt=""/>
                         <h6>Orders</h6>
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to="/dashboard/customers" activeClassName="active" >
+                    <NavLink to="/dashboard/customers/1" activeClassName="active" >
                         <img src="/assets/customer.png" alt=""/>
                         <h6>Сustomers</h6>
                     </NavLink>
@@ -40,6 +40,12 @@ const Col3 = () => {
                     <NavLink to="/dashboard/location" activeClassName="active">
                         <img src="/assets/manzil.png" alt=""/>
                         <h6>Location</h6>
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink to="/dashboard/stats" activeClassName="active">
+                        <img style={{width:"20px",height:"20px"}} src="/assets/statis.png" alt=""/>
+                        <h6>Statistics</h6>
                     </NavLink>
                 </li>
                 <li>

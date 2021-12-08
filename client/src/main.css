@@ -171,7 +171,7 @@ body .react-responsive-modal-root .modal-body form select img{
     outline: none;
 }
 .login button{
-    background-color: #809ba6;
+    background-color: #01384D;
     color: #ffffff;
     font-family: 'Raleway', sans-serif;
     font-weight: 600;
@@ -182,10 +182,10 @@ body .react-responsive-modal-root .modal-body form select img{
     border-radius: 7px;
     margin-top: 35px;
 }
-.login button:hover{
-    background-color: #01384D;
-    color: #ffffff;
-}
+/*.login button:hover{*/
+/*    background-color: #01384D;*/
+/*    color: #ffffff;*/
+/*}*/
 
 @media (max-width: 400px) {
     body .react-responsive-modal-root .images-modal{
@@ -197,4 +197,20 @@ body .react-responsive-modal-root .modal-body form select img{
         height: 64px!important;
     }
 }
+::-webkit-scrollbar {
+    width: 10px;
+    height: 8px;
+  }
+  
+  /* Track */
+  /* ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+  } */
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #808080; 
+    border-radius: 10px;
+  }
 

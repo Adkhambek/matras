@@ -1,4 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap');
+
+.productss{
+    position: relative;
+}
+.productss .color{
+    
+    position: absolute;
+    background-color: #000;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    opacity: 0.5;
+}
 .productss .col-3{
     background-color: #01384D;
     height: 100vh;
@@ -80,30 +94,33 @@
     display: flex;
     align-items:start;
     justify-content: space-between;
+    /* background-color: red; */
     border: 1px solid rgba(0, 0, 0, 0.2);
     background-color: #ffffff;
     border-radius: 5px;
-    padding-top: 13px;
+    /* padding-top: 13px; */
     /*padding-bottom: 12px;*/
-    padding-left: 15px;
-    padding-right: 40px;
+    /* padding-left: 15px; */
+    /* padding-right: 40px; */
     padding-bottom: 0;
 }
-.productadd .input-add input{
-    width: 80%;
+.productadd .input-add .input-add-input{
+    width: 90%;
     border: none;
-    padding: 0;
+
+    /* border: none;
+    padding: 0; */
 }
-.productadd .switch{
+/* .productadd .switch{
     width: 45px;
     height: 24px;
-    /*background-color: #d0efd1;*/
+    
     border-radius: 40px;
     position: relative;
     cursor: pointer;
     transition: all 0.2s linear;
-}
-.productadd .switch-button{
+} */
+/* .productadd .switch-button{
     width: 18px;
     height: 18px;
     border-radius: 50%;
@@ -111,7 +128,7 @@
     top: 3px;
     transition: all 0.2s linear;
 
-}
+} */
 .productadd textarea{
     width: 100%;
     height: 150px;
@@ -131,4 +148,45 @@
     padding: 14px;
     border-radius: 7px;
     margin-top: 40px;
+}
+.productadd .file-div .file{
+    opacity: 0;
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 230px;
+    height: 230px;
+    
+    
+}
+.productadd .file-div{
+    width: 230px;
+    height: 230px;
+    position: relative;
+    border-radius: 8px;
+}
+.productadd  .image-div{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #e6ebed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    padding: 20px;
+}
+.productadd  .image-div img{
+    width: 230px;
+    height: 230px;
+    border-radius: 8px;
+}
+.productadd  .image-div .image-logo{
+    width: 70px!important;
+    height: 70px;
 }

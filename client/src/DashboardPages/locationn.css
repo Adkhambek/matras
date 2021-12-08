@@ -4,17 +4,7 @@
     height: 100vh;
 }
 .add-location{
-    transition: all 0.3s ease-in-out;
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 30px;
-    bottom: 30px;
-    z-index: 999;
-    max-width: 60%;
-    margin: 0 auto;
-    background-color: #ffffff;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    
     padding: 25px;
 }
 .add-location .row{
@@ -25,6 +15,13 @@
     padding-left: 0;
     margin-left: 0;
   }
+.add-location .form-check #flexSwitchCheckChecked{
+    background-color: #12AF18;
+    border: 1px solid #12AF18;
+    width: 50px;
+    height: 24px;
+     border-radius: 40px;
+}
 .add-location input{
     width: 100%;
     border: 2px solid rgba(0, 0, 0, 0.2);

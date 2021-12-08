@@ -4,6 +4,8 @@ import axios from "axios";
 import API from "./Api";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import AOS from 'aos';
+import "aos/dist/aos.css"
 
 const Technologies = () => {
     const [techno,setTechno]=useState([])
@@ -15,6 +17,9 @@ const Technologies = () => {
             })
 
     }, [])
+    useEffect(()=>{
+        AOS.init();
+    })
     const responsive = {
         superLargeDesktop: {
             // the naming can be any, depends on you.
@@ -35,7 +40,8 @@ const Technologies = () => {
         }
     };
     return (
-        <section className="technologies">
+        <div data-aos="fade-up" data-aos-offset="300">
+             <section className="technologies">
             <div className="container">
                 <h1>Ishlab chiqarish texnologiyalari</h1>
                 <div className="row">
@@ -98,6 +104,8 @@ const Technologies = () => {
                 </div>
             </div>
         </section>
+        </div>
+       
     );
 };
 

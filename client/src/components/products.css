@@ -16,6 +16,8 @@
     margin-top: 77px;
     padding-bottom: 4px;
     margin-bottom: 54px;
+    overflow-x: scroll;
+    /* width: 1000px!important; */
 }
 .buttons button{
     background-color: #ffffff;
@@ -25,6 +27,8 @@
     font-size: 16px;
     padding: 13px 31px;
     color: #a9bcc2;
+    white-space: nowrap;
+   
 }
 .buttons button:hover{
     background-color: #e6ebed;
@@ -80,6 +84,8 @@
 .col-12 .right{
     margin-left: 100px;
     padding-right: 40px;
+    flex: 0 0 50%;
+    max-width: 50%;
 }
 .right .main-title{
     color: #01384D;
@@ -109,6 +115,7 @@
     font-size: 16px;
     font-weight: 400;
     opacity: 60%;
+    overflow-wrap: break-word;
     margin-top: 20px;
 }
 .right .price h6{
@@ -210,6 +217,9 @@
     }
 }
 @media (max-width:768px){
+    .action{
+        padding-top: 40px;
+    }
     .products .container .row .col-12 .left{
         padding-left: 0!important;
     }
@@ -231,15 +241,23 @@
     .col-12 .right{
         margin-left: 0!important;
         padding-right: 0!important;
+        margin-right: 0!important;
+        flex: 0 0 100%;
+        max-width: 100%;
     }
     .col-12 .right h6{
        font-size: 22px;
+      
     }
     .col-12 .right .info h6{
         font-size: 14px;
     }
+    .col-12 .right .main-title{
+        text-align: center;
+    }
     .col-12 .right .info-main{
         display: block!important;
+        text-align: center;
     }
     .col-12 .right .infos{
         flex: 0 0 100%;
@@ -251,9 +269,21 @@
         flex: 0 0 50%;
         max-width: 50%;
     }
+    .col-12 .right .price{
+        text-align: center;
+    }
+    .col-12 .right .price .d-flex{
+        justify-content: center;
+    }
+    .col-12 .right p{
+        text-align: center;
+    }
     .col-12 .right .price h6{
         font-size: 16px;
         margin-bottom: 0!important;
+    }
+    .col-12 .right button{
+        width: 100%!important;
     }
 }
 @media (max-width: 400px) {

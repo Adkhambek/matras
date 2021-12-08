@@ -4,6 +4,8 @@ import "react-multi-carousel/lib/styles.css"
 import "./location.css"
 import axios from "axios";
 import API from "./Api";
+import AOS from 'aos';
+import "aos/dist/aos.css"
 
 const Location = () => {
     const [address,setAddress]=useState([])
@@ -11,10 +13,12 @@ const Location = () => {
         axios.get(API+"/api/address")
             .then((res)=>{
                 setAddress(res.data.data)
-
             })
 
     }, [])
+    useEffect(()=>{
+        AOS.init();
+    })
     const responsive = {
         superLargeDesktop: {
             // the naming can be any, depends on you.
@@ -36,7 +40,8 @@ const Location = () => {
     };
     // console.log(address[0].images)
     return (
-        <section className='location'>
+        <div data-aos="fade-up" data-aos-offset="300">
+                <section className='location'>
             <div className="container">
                 {address.map((item,index)=>{
                     return(
@@ -89,6 +94,8 @@ const Location = () => {
 
             </div>
         </section>
+        </div>
+        
     );
 };
 

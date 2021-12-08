@@ -1,8 +1,10 @@
-import React, {useState,useRef} from 'react';
+import React, {useState,useRef,useEffect} from 'react';
 import './interest.css'
 import axios from "axios";
 import API from "./Api";
 import {toast} from "react-toastify";
+import AOS from 'aos';
+import "aos/dist/aos.css"
 
 const Interest = () => {
     const [value,setValue]=useState()
@@ -37,12 +39,16 @@ const Interest = () => {
             });
 
     }
+    useEffect(()=>{
+        AOS.init();
+    })
 
     const [none,setNone]=useState('none')
     const [nonee,setNonee]=useState('block')
 
     return (
-        <section className="interest">
+        <div data-aos="fade-up" data-aos-offset="300">
+            <section className="interest">
            <div style={{display:nonee}}>
                <div className="container d-flex align-items-center justify-content-between">
                    <div>
@@ -82,6 +88,8 @@ const Interest = () => {
                 </div>
             </div>
         </section>
+        </div>
+        
     );
 };
 

@@ -199,9 +199,16 @@
         font-size: 60px;
         height: 110px!important;
         min-height: 110px!important;
+        text-align: center;
+    }
+    .react-multi-carousel-list ul li a{
+        text-decoration: none;
     }
     .react-multi-carousel-list ul li .btnn{
         margin-top: 60px!important;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
     .carusel .react-multi-carousel-dot-list{
         justify-content: center;

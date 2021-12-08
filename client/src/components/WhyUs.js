@@ -1,9 +1,15 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import "./why-us.css"
+import AOS from 'aos';
+import "aos/dist/aos.css"
 
 const WhyUs = () => {
+    useEffect(()=>{
+        AOS.init();
+    })
     return (
-        <section className="why-us">
+        <div data-aos="fade-up" data-aos-offset="300">
+                 <section className="why-us">
             <div className="container">
                 <h1>Nega bizni tanlashadi</h1>
                 <div className="row">
@@ -46,6 +52,8 @@ const WhyUs = () => {
                 </div>
             </div>
         </section>
+        </div>
+       
     );
 };
 

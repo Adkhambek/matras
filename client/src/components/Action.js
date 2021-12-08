@@ -4,6 +4,8 @@ import axios from "axios";
 import API from "./Api";
 import {Modal} from "react-responsive-modal";
 import {toast} from "react-toastify";
+import AOS from 'aos';
+import "aos/dist/aos.css"
 
 
 const Action = () => {
@@ -14,6 +16,9 @@ const Action = () => {
     const [value,setValue]=useState(1)
     const [connect,setConnect]=useState('')
 
+    useEffect(()=>{
+        AOS.init();
+    })
 
 
 
@@ -49,6 +54,7 @@ const Action = () => {
         axios.get(API+"/api/products/discount")
             .then((res)=>{
                 setMenuItem(res.data.data)
+                console.log(res.data.data)
             })
 
     }, [])
@@ -82,9 +88,11 @@ const Action = () => {
             });
 
     }
+    const [imgs,setImgs]=useState(0)
     return (
        <>
-           <section className="products">
+       <div data-aos="fade-up" data-aos-offset="300">
+       <section id="action" className="products action">
                <div className="container">
                    <h1 className="title mb-5">Aksiyadagi mahsulotlar</h1>
                    <div className="row">
@@ -94,7 +102,10 @@ const Action = () => {
                                    <div className="left">
                                        <div className="d-flex align-items-center justify-content-between">
                                            <button style={{backgroundColor:"#1FCA25"}}>AKSIYA</button>
-                                           <div onClick={openModell} className="action-button"><img style={{marginTop:"0",width:"32px",height:"32px"}} src="/assets/zoom.png" alt=""/></div>
+                                           <div onClick={()=>{
+                                               setSelectted(JSON.parse(item.images))
+                                               openModell()
+                                           }} className="action-button"><img style={{marginTop:"0",width:"32px",height:"32px"}} src="/assets/zoom.png" alt=""/></div>
                                        </div>
                                        <img src={API + "/images/product/" + JSON.parse(item.images)[2]} alt=""/>
                                    </div>
@@ -141,8 +152,8 @@ const Action = () => {
                                            </div>
                                        </div>
                                        <button onClick={()=>{
-                                           console.log(item)
-                                           setSelectted(item)
+
+                                           console.log(selectted)
                                            openModall()
                                        }}>Xarid qilish <img src="/assets/cart.png" alt=""/></button>
                                    </div>
@@ -152,6 +163,8 @@ const Action = () => {
                    </div>
                </div>
            </section>
+       </div>
+          
            <Modal open={modall} onClose={closeModall} center>
                <div className="modal-body">
                    <h1>Buyurtma qilish</h1>
@@ -170,7 +183,6 @@ const Action = () => {
                            {menuItem.map((item,index)=>{
                                return <option key={item.id}  value={item.id}>{item.name}</option>
                            })}
-                           <img src="/assets/arrow-down.png" alt=""/>
                        </select>
                        <label style={{marginTop:"25px"}} htmlFor="">Miqdorni tanlang</label>
                        <div className="d-flex number-group">
@@ -203,25 +215,15 @@ const Action = () => {
                </div>
            </Modal>
            <Modal open={modell} onClose={closeModell} center>
+               <img style={{width:"100%",height:"200px"}} src={API+"/images/product/"+(selectted[imgs])} alt=""/>
                <div className="d-flex justify-content-between mt-5 images-modal">
-
-                   {/*{imgs[0].map((item,index)=>(*/}
-
-                   {/*        <img*/}
-                   {/*            onClick={()=>{*/}
-                   {/*                console.log(index)*/}
-                   {/*                console.log(imgs[index])*/}
-                   {/*            }}*/}
-                   {/*            style={{width:"100px",height:"100px",marginLeft:"10px"}}*/}
-                   {/*            key={index.toString()}*/}
-                   {/*            src={API+"/images/product/"+item}*/}
-                   {/*            alt=""*/}
-                   {/*        />*/}
-                   {/*))}*/}
+                   {selectted.map((item,index)=>
+                       <img onClick={()=>{
+                           setImgs(index)
+                       }} style={{width:"120px",height:"120px",marginLeft:"10px"}} key={index.toString()} src={API+"/images/product/"+item} alt=""/>
+                       // <img src={API + "/images/product/" + JSON.parse(item.images)[2]} alt=""/>
+                   )}
                </div>
-           </Modal>
-           <Modal>
-
            </Modal>
        </>
     );

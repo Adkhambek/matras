@@ -30,6 +30,13 @@ const Header = () => {
                 setProduct(res.data.data)
             })
     }
+    const [phone,setPhone]=useState(false)
+    const onClosePhone=()=>{
+        setPhone(false)
+    }
+    const onOpenPhone=()=>{
+        setPhone(true)
+    }
     const [value,setValue]=useState(1)
     const [connect,setConnect]=useState('')
     const [open, setOpen] = useState(false);
@@ -61,8 +68,6 @@ const Header = () => {
                 if (error.response) {
                     toast.error(error.response.data.detail)
                     console.log(error.response.data);
-                    // console.log(error.response.status);
-                    // console.log(error.response.headers);
                 }
             });
 
@@ -97,11 +102,15 @@ const Header = () => {
                     <div className="menu">
                         <div className="d-flex justify-content-end linkss" >
                             <ul>
-                                <li><a href="#">Katalog</a></li>
-                                <li><a href="#">Aksiya</a></li>
-                                <li><a href="#">Biz haqimizda</a></li>
-                                <li><a href="#">Manzilimiz</a></li>
-                                <li><a href="#">Aloqa</a></li>
+                                <li><a href="#products">Matraslar</a></li>
+                                <li><a href="#action">Aksiya</a></li>
+                                <li><a href="#about">Biz haqimizda</a></li>
+                                <li style={{cursor:"pointer"}} onClick={()=>{
+                                    onOpenPhone()
+                                }}><a>Manzilimiz</a></li>
+                                <li style={{cursor:"pointer"}} onClick={()=>{
+                                    onOpenPhone()
+                                }}><a >Aloqa</a></li>
                             </ul>
                         </div>
                         <div className="d-flex justify-content-between align-items-center child-menu">
@@ -111,7 +120,7 @@ const Header = () => {
                             <div className="d-flex justify-content-start align-items-center phone-div">
                                 <div className="d-flex   align-items-center  phone-div">
                                     <img src="/assets/call.png" alt=""/>
-                                    <h6 className="mb-0">+998 90 123 45 67</h6>
+                                    <a style={{textDecoration:"none",color:"#01384d",marginLeft:"10px"}} href="tel:[phone number]"><h6 className="mb-0">+998 78 122 02 03</h6></a>
                                 </div>
                                 <div>
                                     <button onClick={()=>{
@@ -137,11 +146,15 @@ const Header = () => {
                     </div>
                     <div style={{display:none}} className="none-links">
                         <ul>
-                            <li><a href="#">Katalog</a></li>
-                            <li><a href="#">Aksiya</a></li>
-                            <li><a href="#">Biz haqimizda</a></li>
-                            <li><a href="#">Manzilimiz</a></li>
-                            <li><a href="#">Aloqa</a></li>
+                            <li><a  href="#products">Matraslar</a></li>
+                            <li><a href="#action">Aksiya</a></li>
+                            <li><a href="#about">Biz haqimizda</a></li>
+                            <li style={{cursor:"pointer"}} onClick={()=>{
+                                    onOpenPhone()
+                                }}><a>Manzilimiz</a></li>
+                            <li  style={{cursor:"pointer"}} onClick={()=>{
+                                    onOpenPhone()
+                                }}><a>Aloqa</a></li>
                         </ul>
                         <div>
                             <button onClick={()=>{
@@ -152,7 +165,7 @@ const Header = () => {
                         <div className="nuumber">
                             <div className="d-flex   align-items-center  phone-div">
                                 <img src="/assets/call.png" alt=""/>
-                                <h6 className="mb-0">+998 90 123 45 67</h6>
+                                <a style={{textDecoration:"none",color:"#01384d",marginLeft:"10px"}} href="tel:[phone number]"><h6 className="mb-0">+998 78 122 02 03</h6></a>
                             </div>
                         </div>
                     </div>
@@ -238,6 +251,28 @@ const Header = () => {
                     <p>{connect}</p>
                     <button onClick={onCloseModalSecond} className="w-100">Ok</button>
                 </div>
+            </Modal>
+            <Modal open={phone} onClose={onClosePhone} center>
+                    <div style={{marginTop:"40px"}} className="d-flex   align-items-center  phone-div">
+                            <img src="/assets/call.png" alt=""/>
+                            <a style={{textDecoration:"none",color:"#01384d",marginLeft:"10px"}} href="tel:[phone number]"><h6 className="mb-0">+998 78 122 02 03</h6></a>
+                             
+                     </div>
+                     <div style={{marginTop:"20px"}} className="d-flex   align-items-center  phone-div">
+                            <img src="/assets/call.png" alt=""/>
+                            <a style={{textDecoration:"none",color:"#01384d",marginLeft:"10px"}} href="tel:[phone number]"><h6 className="mb-0">+998 90 931 47 47</h6></a>
+                     </div>
+                     <div>
+                         <h6 style={{marginTop:"30px",color:"#01384d",fontSize:"20px"}}>
+                            Ish grafigi: <br/>
+                            Du-Yak: 9.00 dan 20.00 gacha
+                         </h6>
+                         <h6 style={{marginTop:"30px",color:"#01384d",fontSize:"20px"}}>
+                            Manzil:<br/>
+                            Toshkent sh., Parkent ko‘chasi, 176-uy
+                         </h6>
+                     </div>
+
             </Modal>
         </>
 

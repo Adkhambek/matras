@@ -5,8 +5,13 @@ import { Modal } from 'react-responsive-modal';
 import axios from "axios";
 import API from "./Api";
 import {toast} from "react-toastify";
+import AOS from 'aos';
+import "aos/dist/aos.css"
 
 const Products = () => {
+    useEffect(()=>{
+        AOS.init();
+    })
     const nameRef = useRef(null)
     const numberRef=useRef(null)
     const productIdRef=useRef(null)
@@ -104,9 +109,8 @@ const Products = () => {
             .catch(function (error) {
                 if (error.response) {
                     toast.error(error.response.data.detail)
-                    console.log(error.response.data);
-                    // console.log(error.response.status);
-                    // console.log(error.response.headers);
+                    toast.error(error.response.data.error)
+                    console.log(error.response.data.error);
                 }
             });
 
@@ -124,10 +128,12 @@ const Products = () => {
                 setSelectImg(res.data.data.images)
             })
     }
+    const[num,setNum]=useState(1)
 
     return (
         <>
-            <section className="products">
+        <div data-aos="fade-up" data-aos-offset="300">
+        <section id="products" className="products">
                 <div id="products" className="container">
                     <h1 className="title">Bizning mahsulotlar</h1>
                     <div className="d-flex justify-content-between buttons">
@@ -388,7 +394,7 @@ const Products = () => {
                                 <div>
                                 {(menuItemOne.length<1 && allOne.length<1)
                                     ?
-                                    <h1>Bu kategoriyada maxsulot yoq</h1>
+                                    <h1 style={{fontSize:"15px"}} className="none-product">Bu kategoriyada maxsulot yoq</h1>
                                     :
                                     <div className="row">
                                         {menuItemOne.map((item,index)=>
@@ -519,6 +525,8 @@ const Products = () => {
 
                 </div>
             </section>
+        </div>
+            
             <Modal open={modal} onClose={closeModal} center>
                 <div className="modal-body">
                     <h1>Buyurtma qilish</h1>
@@ -573,10 +581,13 @@ const Products = () => {
                 </div>
             </Modal>
             <Modal open={model} onClose={closeModel} center>
+                <img style={{width:"100%",height:"200px"}} src={API+"/images/product/"+selectImg[num]} alt=""/>
                 <div className="d-flex justify-content-between mt-5 images-modal">
                     {selectImg.map((item,index)=>(
                         <div key={index.toString()}>
-                            <img style={{width:"100px",height:"100px",marginLeft:"10px"}} key={index} src={API+"/images/product/"+item} alt=""/>
+                            <img onClick={()=>{
+                                setNum(index)
+                            }} style={{width:"100px",height:"100px",marginLeft:"10px",cursor:"pointer"}} key={index} src={API+"/images/product/"+item} alt=""/>
                         </div>
                     ))}
                 </div>

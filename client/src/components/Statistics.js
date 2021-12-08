@@ -2,6 +2,8 @@ import React, {useState,useEffect} from 'react';
 import './statistics.css'
 import axios from "axios";
 import API from "./Api";
+import AOS from 'aos';
+import "aos/dist/aos.css"
 
 const Statistics = () => {
     const [statistics,setStatistics]=useState([])
@@ -12,8 +14,12 @@ const Statistics = () => {
             })
 
     }, [])
+    useEffect(()=>{
+        AOS.init();
+    })
     return (
-       <section className="statistics">
+        <div data-aos="fade-up" data-aos-offset="300">
+            <section className="statistics">
            <div className="container">
                <div className="row">
                    <div className="col-3">
@@ -35,6 +41,8 @@ const Statistics = () => {
                </div>
            </div>
        </section>
+        </div>
+       
     );
 };
 
