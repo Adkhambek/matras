@@ -1,10 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap");
 
-.productss{
+.productss {
     position: relative;
 }
-.productss .color{
-    
+.productss .color {
     position: absolute;
     background-color: #000;
     left: 0;
@@ -13,15 +12,15 @@
     top: 0;
     opacity: 0.5;
 }
-.productss .col-3{
-    background-color: #01384D;
+.productss .col-3 {
+    background-color: #01384d;
     height: 100vh;
 }
 .Add {
     /*transform: translateY(-110%);*/
     transition: all 0.3s ease-in;
     background-color: #ffffff;
-     position: fixed;
+    position: fixed;
     left: 0;
     right: 0;
     bottom: 20px;
@@ -29,15 +28,15 @@
     z-index: 999;
     max-width: 80%;
     margin: 0 auto;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
- }
-.productadd .close{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.productadd .close {
     float: right;
-    background-color: #01384D;
+    background-color: #01384d;
     color: #ffffff;
     font-size: 20px;
     font-weight: bold;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     /*padding: 10px;*/
     border: none;
     margin-right: 5px;
@@ -45,36 +44,26 @@
     width: 30px;
     height: 30px;
 }
-.productadd .row{
+.productadd .row {
     margin-top: 25px;
 }
-.productadd  h6{
+.productadd h6 {
     margin-top: 25px;
-    font-family: 'Montserrat', sans-serif;
-    color: #01384D;
+    font-family: "Montserrat", sans-serif;
+    color: #01384d;
     font-weight: 600;
     margin-bottom: 0;
     padding-left: 25px;
 }
-.productadd p{
-    font-family: 'Montserrat', sans-serif;
-    color: #01384D;
+.productadd p {
+    font-family: "Montserrat", sans-serif;
+    color: #01384d;
     font-size: 14px;
     font-weight: 500;
     margin-bottom: 10px;
     text-align: left;
 }
-.productadd input{
-    border: 1px solid rgba(0, 0, 0, 0.2);
-   padding-top: 13px;
-    padding-bottom: 12px;
-    padding-left: 15px;
-    padding-right: 40px;
-    border-radius: 5px;
-    width: 100%;
-    margin-bottom: 20px;
-}
-.productadd select{
+.productadd input {
     border: 1px solid rgba(0, 0, 0, 0.2);
     padding-top: 13px;
     padding-bottom: 12px;
@@ -84,15 +73,25 @@
     width: 100%;
     margin-bottom: 20px;
 }
-.productadd input:focus{
+.productadd select {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding-top: 13px;
+    padding-bottom: 12px;
+    padding-left: 15px;
+    padding-right: 40px;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.productadd input:focus {
     outline: none;
 }
-.productadd select:focus{
+.productadd select:focus {
     outline: none;
 }
-.productadd .input-add{
+.productadd .input-add {
     display: flex;
-    align-items:start;
+    align-items: flex-start;
     justify-content: space-between;
     /* background-color: red; */
     border: 1px solid rgba(0, 0, 0, 0.2);
@@ -104,7 +103,7 @@
     /* padding-right: 40px; */
     padding-bottom: 0;
 }
-.productadd .input-add .input-add-input{
+.productadd .input-add .input-add-input {
     width: 90%;
     border: none;
 
@@ -129,27 +128,27 @@
     transition: all 0.2s linear;
 
 } */
-.productadd textarea{
+.productadd textarea {
     width: 100%;
     height: 150px;
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     padding: 13px;
 }
-.productadd textarea:focus{
+.productadd textarea:focus {
     outline: none;
 }
-.productadd .add-buttton{
+.productadd .add-buttton {
     width: 100%;
-    background-color: #01384D;
+    background-color: #01384d;
     color: #ffffff;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 500;
     padding: 14px;
     border-radius: 7px;
     margin-top: 40px;
 }
-.productadd .file-div .file{
+.productadd .file-div .file {
     opacity: 0;
     position: absolute;
     z-index: 999;
@@ -159,16 +158,14 @@
     left: 0;
     width: 230px;
     height: 230px;
-    
-    
 }
-.productadd .file-div{
+.productadd .file-div {
     width: 230px;
     height: 230px;
     position: relative;
     border-radius: 8px;
 }
-.productadd  .image-div{
+.productadd .image-div {
     position: absolute;
     top: 0;
     right: 0;
@@ -181,12 +178,12 @@
     border-radius: 8px;
     padding: 20px;
 }
-.productadd  .image-div img{
+.productadd .image-div img {
     width: 230px;
     height: 230px;
     border-radius: 8px;
 }
-.productadd  .image-div .image-logo{
-    width: 70px!important;
+.productadd .image-div .image-logo {
+    width: 70px !important;
     height: 70px;
 }
