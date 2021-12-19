@@ -5,7 +5,8 @@ const { imageMaxSize } = require("../config/keys");
 exports.upload = (folderName) => {
     const fileStorage = multer.diskStorage({
         destination: function (req, file, callback) {
-            callback(null, path.join(__dirname, "../image", folderName));
+            console.log(path.join(process.cwd(), "image", folderName));
+            callback(null, path.join(process.cwd(), "image", folderName));
         },
         filename: function (req, file, callback) {
             callback(

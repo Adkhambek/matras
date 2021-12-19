@@ -79,6 +79,7 @@ router.patch("/:id", protect, bannerUpload, validation(schema.bannerSchema), asy
         const bannerId = req.params.id * 1;
         const banner = await model.getBanner(bannerId);
         await deleteFile(imagePath("banner", banner.image));
+        console.log(req.file.filename, req.body);
         await model.updateBanner(req.body.title, req.file.filename, bannerId);
         res.status(200).json({
             statusCode: 200,

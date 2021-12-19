@@ -3,7 +3,7 @@ const { bannerMsg, technologyMsg, addressMsg } = require("../config/message");
 const {countBanners} = require("../models/banner");
 const {countTechnologies} = require("../models/technology");
 
-exports.bannerUpload = async (req, res, next) => {
+exports.bannerUpload = async (req, res, next) => { 
     let countBanner = await countBanners();
     countBanner = countBanner.count * 1
     if(countBanner < 4 || req.method === "PATCH") {
