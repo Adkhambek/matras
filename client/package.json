@@ -1,9 +1,9 @@
 {
     "name": "matras",
-    "homepage": ".",
+    "homepage": "https://adhamdev.uz",
     "version": "0.1.0",
     "private": true,
-    "proxy": "http://localhost:8080",
+    "proxy": ".",
     "dependencies": {
         "@emotion/react": "^11.6.0",
         "@emotion/styled": "^11.6.0",

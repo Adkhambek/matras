@@ -44,7 +44,7 @@ const App = () => {
                 </div>
             ) : (
                 <>
-                    <BrowserRouter>
+                    <BrowserRouter basename="/">
                         <Switch>
                             <Route path="/" exact component={Home} />
                             <Route path="/admin" exact component={Admin} />
