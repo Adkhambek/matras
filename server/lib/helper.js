@@ -4,5 +4,5 @@ const path = require("path");
 module.exports = {
     deleteFile: util.promisify(fs.unlink),
     imagePath: (folderName, imageName) =>
-        path.join(process.cwd(), "server", "image", folderName, imageName),
+        path.join(process.cwd(), "image", folderName, imageName),
 };
