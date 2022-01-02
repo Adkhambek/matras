@@ -47,9 +47,9 @@
 .second .right{
    padding-left: 87px;
 }
-.right p{
+.about .right p{
     color: #01384D!important;
-    opacity: 100%;
+    opacity: 1!important;
 }
 .right .second-p{
     font-weight: lighter;
